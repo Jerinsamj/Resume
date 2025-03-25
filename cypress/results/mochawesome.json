@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-25T05:37:45.569Z",
+    "end": "2025-03-25T05:37:53.097Z",
+    "duration": 7528,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f6ed2446-56b8-4ab3-874d-827001d210b1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\emailAutomation.spec.cy.js",
+      "file": "cypress\\e2e\\emailAutomation.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c83b1d6d-3d40-4161-9042-20a7b314e929",
+          "title": "Automated Interaction with Website Button",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should go to the website, click on the email button, and open the mail client",
+              "fullTitle": "Automated Interaction with Website Button should go to the website, click on the email button, and open the mail client",
+              "timedOut": null,
+              "duration": 5746,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Step 1: Visit the live website\ncy.visit('https://jerinsamj.github.io/Resume/');\n// Step 2: Click the Send Email button\ncy.get('#send-email-btn').click();\n// Step 3: Verify that the email client is triggered (we check the mailto link)\n// Since Cypress cannot interact with actual mail clients, we'll verify the URL\ncy.url().should('include', 'mailto:jerin@example.com');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#send-email-btn`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#send-email-btn`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:7:7)",
+                "diff": null
+              },
+              "uuid": "bfe7f911-e823-4b1e-b129-11675bb2d0b3",
+              "parentUUID": "c83b1d6d-3d40-4161-9042-20a7b314e929",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bfe7f911-e823-4b1e-b129-11675bb2d0b3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 5746,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -3,14 +3,14 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // You can implement event listeners here if needed
+      // Implement node event listeners here (if any)
     },
-    reporter: "mochawesome",  // Set Mochawesome as the reporter
+    reporter: "mochawesome",  // Set mochawesome as the reporter
     reporterOptions: {
-      reportDir: "cypress/results",  // Path where reports are saved
-      overwrite: false,
-      html: true,  // Generate HTML report
-      json: true   // Generate JSON report
-    }
-  }
+      reportDir: "cypress/results",  // Directory where reports will be saved
+      overwrite: false,  // Do not overwrite previous reports
+      html: true,  // Generate an HTML report
+      json: true,  // Generate a JSON report
+    },
+  },
 });
