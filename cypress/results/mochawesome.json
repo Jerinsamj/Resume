@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 11,
-    "start": "2025-03-25T09:30:16.369Z",
-    "end": "2025-03-25T09:31:05.749Z",
-    "duration": 49380,
+    "start": "2025-03-25T13:37:20.654Z",
+    "end": "2025-03-25T13:38:10.510Z",
+    "duration": 49856,
     "testsRegistered": 12,
     "passPercent": 8.333333333333332,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "1129c1fd-22b2-474c-a97d-ca48487f4c0e",
+      "uuid": "04839753-27b0-42cd-be23-069a244a14f1",
       "title": "",
       "fullFile": "cypress\\e2e\\emailAutomation.spec.cy.js",
       "file": "cypress\\e2e\\emailAutomation.spec.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+          "uuid": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
           "title": "Automated Interaction with Website Button",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "should go to the website, click on the email button, and open the mail client",
               "fullTitle": "Automated Interaction with Website Button should go to the website, click on the email button, and open the mail client",
               "timedOut": null,
-              "duration": 1527,
+              "duration": 1581,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "// Step 1: Visit the live website\ncy.visit('https://jerinsamj.github.io/Resume/');",
               "err": {},
-              "uuid": "af83e673-2fcc-4e69-a6d6-c2a4c7927169",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "b7fd23ea-ad16-4219-ad50-c2bfabb77e86",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "should display the correct greeting message based on the time of day",
               "fullTitle": "Automated Interaction with Website Button should display the correct greeting message based on the time of day",
               "timedOut": null,
-              "duration": 4213,
+              "duration": 4230,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -69,8 +69,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#greeting`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:13:15)",
                 "diff": null
               },
-              "uuid": "9e7160b9-4f07-468d-bc6a-78d7f741a4b3",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "caa496d8-f154-497f-9e83-1c778ded7e4f",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -78,7 +78,7 @@
               "title": "should download the resume when the download button is clicked",
               "fullTitle": "Automated Interaction with Website Button should download the resume when the download button is clicked",
               "timedOut": null,
-              "duration": 4124,
+              "duration": 4122,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -91,8 +91,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.download-btn`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:24:7)",
                 "diff": null
               },
-              "uuid": "84d72fc8-bad6-4e6b-8a54-8bf02f870904",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "f8d7d1b6-3d6e-4e16-9a11-4a36ad61bbac",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -100,7 +100,7 @@
               "title": "should open the email client when clicking on the email link",
               "fullTitle": "Automated Interaction with Website Button should open the email client when clicking on the email link",
               "timedOut": null,
-              "duration": 4127,
+              "duration": 4164,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -113,8 +113,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `footer .contact a`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:30:7)",
                 "diff": null
               },
-              "uuid": "b7bba44d-5081-48b1-b2b7-8399ce5ccfe6",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "bff5efbe-03f0-4ce7-9770-5b512b7e2281",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -122,7 +122,7 @@
               "title": "should toggle dark mode when the dark mode button is clicked",
               "fullTitle": "Automated Interaction with Website Button should toggle dark mode when the dark mode button is clicked",
               "timedOut": null,
-              "duration": 4138,
+              "duration": 4124,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -135,8 +135,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.toggle-btn`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:40:7)",
                 "diff": null
               },
-              "uuid": "28bede2f-d154-4a80-8d96-2e077dc793f8",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "02d8024a-e85b-4bac-b1da-33a390b86caf",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -144,7 +144,7 @@
               "title": "should expand and collapse project details when clicked",
               "fullTitle": "Automated Interaction with Website Button should expand and collapse project details when clicked",
               "timedOut": null,
-              "duration": 4119,
+              "duration": 4206,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -157,8 +157,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.card`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:50:7)",
                 "diff": null
               },
-              "uuid": "a399bd0c-a4a3-46c3-a900-0ef605ae76f1",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "d9668f16-e88c-4142-be75-f94f5d8db260",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -166,7 +166,7 @@
               "title": "should show tech icons in Career Projects section",
               "fullTitle": "Automated Interaction with Website Button should show tech icons in Career Projects section",
               "timedOut": null,
-              "duration": 4216,
+              "duration": 4157,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -179,8 +179,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.tech-icons`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:59:26)",
                 "diff": null
               },
-              "uuid": "1180a679-bd25-455a-9a0e-fd39b0aa0872",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "59ad16d7-6dae-4251-939c-dd5b090f62bc",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -188,7 +188,7 @@
               "title": "should display skills cards",
               "fullTitle": "Automated Interaction with Website Button should display skills cards",
               "timedOut": null,
-              "duration": 4100,
+              "duration": 4241,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -201,8 +201,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.section-title`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:65:7)",
                 "diff": null
               },
-              "uuid": "086447f7-6922-4751-acfd-7229656635bf",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "847dd5cd-9b1d-4169-93ad-4280853292db",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -210,7 +210,7 @@
               "title": "should display work experience cards correctly",
               "fullTitle": "Automated Interaction with Website Button should display work experience cards correctly",
               "timedOut": null,
-              "duration": 4120,
+              "duration": 4152,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -223,8 +223,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.section-title`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:71:7)",
                 "diff": null
               },
-              "uuid": "ff26c6d6-3feb-4e43-9562-afa9c98cefd2",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "e4856331-97d3-4679-8b40-6289864c1e9c",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -232,7 +232,7 @@
               "title": "should display Education section with correct content",
               "fullTitle": "Automated Interaction with Website Button should display Education section with correct content",
               "timedOut": null,
-              "duration": 4136,
+              "duration": 4119,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -245,8 +245,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.section-title`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:77:7)",
                 "diff": null
               },
-              "uuid": "e025a66e-42c8-4456-a912-8780d705efb2",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "a8463f95-cd82-4cf3-a657-17cd9b1996be",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -254,7 +254,7 @@
               "title": "should open GitHub link when the GitHub icon is clicked",
               "fullTitle": "Automated Interaction with Website Button should open GitHub link when the GitHub icon is clicked",
               "timedOut": null,
-              "duration": 4153,
+              "duration": 4176,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -267,8 +267,8 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `footer .contact a`, but never found it.\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:83:7)",
                 "diff": null
               },
-              "uuid": "306ac601-f1da-469d-b9ce-3312d54323e3",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "e240b857-1ab0-42ed-84de-22769dc6826e",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             },
@@ -276,7 +276,7 @@
               "title": "should load the page successfully",
               "fullTitle": "Automated Interaction with Website Button should load the page successfully",
               "timedOut": null,
-              "duration": 4132,
+              "duration": 4225,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -289,32 +289,32 @@
                 "estack": "AssertionError: Timed out retrying after 4000ms: expected 'about:blank' to equal 'https://jerinsamj.github.io/Resume/'\n    at Context.eval (webpack://resumecypress/./cypress/e2e/emailAutomation.spec.cy.js:92:13)",
                 "diff": "- 'about:blank'\n+ 'https://jerinsamj.github.io/Resume/'\n"
               },
-              "uuid": "9bf55eff-6d33-4496-85e6-456d054fcd78",
-              "parentUUID": "c3ccecdf-f6f8-4cd6-8cdf-d1eb938ff070",
+              "uuid": "4cd47532-f767-4ba7-bb07-dadd18f45308",
+              "parentUUID": "cea58b56-feb4-45e1-a35a-a5cfcfd1016e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "af83e673-2fcc-4e69-a6d6-c2a4c7927169"
+            "b7fd23ea-ad16-4219-ad50-c2bfabb77e86"
           ],
           "failures": [
-            "9e7160b9-4f07-468d-bc6a-78d7f741a4b3",
-            "84d72fc8-bad6-4e6b-8a54-8bf02f870904",
-            "b7bba44d-5081-48b1-b2b7-8399ce5ccfe6",
-            "28bede2f-d154-4a80-8d96-2e077dc793f8",
-            "a399bd0c-a4a3-46c3-a900-0ef605ae76f1",
-            "1180a679-bd25-455a-9a0e-fd39b0aa0872",
-            "086447f7-6922-4751-acfd-7229656635bf",
-            "ff26c6d6-3feb-4e43-9562-afa9c98cefd2",
-            "e025a66e-42c8-4456-a912-8780d705efb2",
-            "306ac601-f1da-469d-b9ce-3312d54323e3",
-            "9bf55eff-6d33-4496-85e6-456d054fcd78"
+            "caa496d8-f154-497f-9e83-1c778ded7e4f",
+            "f8d7d1b6-3d6e-4e16-9a11-4a36ad61bbac",
+            "bff5efbe-03f0-4ce7-9770-5b512b7e2281",
+            "02d8024a-e85b-4bac-b1da-33a390b86caf",
+            "d9668f16-e88c-4142-be75-f94f5d8db260",
+            "59ad16d7-6dae-4251-939c-dd5b090f62bc",
+            "847dd5cd-9b1d-4169-93ad-4280853292db",
+            "e4856331-97d3-4679-8b40-6289864c1e9c",
+            "a8463f95-cd82-4cf3-a657-17cd9b1996be",
+            "e240b857-1ab0-42ed-84de-22769dc6826e",
+            "4cd47532-f767-4ba7-bb07-dadd18f45308"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 47105,
+          "duration": 47497,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
