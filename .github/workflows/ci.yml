@@ -9,22 +9,37 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Step 2: Cache Node.js dependencies for faster builds
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      # Step 3: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Step 5: Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run
 
+      # Step 6: Upload Cypress test results (e.g., screenshots, videos, logs)
       - name: Upload Cypress test results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-results
-          path: cypress/results
+          path: cypress/results  # You can adjust the path if you're saving results elsewhere
+
