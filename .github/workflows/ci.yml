@@ -1,4 +1,4 @@
-name: Run Cypress Tests
+name: Run Cypress Tests and Download Results
 
 on:
   push:
@@ -9,36 +9,46 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step 2: Cache Node.js dependencies for faster builds
       - name: Cache node modules
-        uses: actions/cache@v3  # Use actions/cache@v3 (latest version)
+        uses: actions/cache@v3
         with:
-          path: node_modules  # Cache the node_modules folder
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}  # Use package-lock.json hash for cache key
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
-      # Step 3: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 5: Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run
 
-      # Step 6: Upload Cypress test results (e.g., screenshots, videos, logs)
       - name: Upload Cypress test results
-        uses: actions/upload-artifact@v2  # Use actions/upload-artifact@v2 for uploading results
+        uses: actions/upload-artifact@v3
         with:
           name: cypress-results
-          path: cypress/results  # Ensure this path exists and contains the results
+          path: cypress/results
+
+  download-artifacts:
+    runs-on: ubuntu-latest
+    needs: cypress  # Ensure this job runs after the Cypress tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download the Cypress results artifact
+        uses: actions/download-artifact@v4.2.1
+        with:
+          name: cypress-results
+          path: ./artifacts
+          
+      - name: List downloaded files
+        run: ls ./artifacts
