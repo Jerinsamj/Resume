@@ -1,51 +1,30 @@
-name: Cypress Tests
+name: Cypress Testing
 
 on:
   push:
     branches:
-      - main  # Runs on every push to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Runs on pull requests to the main branch
+      - main
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest  # or another OS like macos-latest or windows-latest
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # Set the Node.js version (use your preferred version)
+          node-version: '16'
 
       - name: Install dependencies
         run: |
           npm install
-
-      - name: Install Cypress
-        run: |
           npm install cypress --save-dev
 
       - name: Run Cypress tests
         run: |
-          npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/results,overwrite=false,html=true,json=true
-
-      - name: Upload Cypress Mochawesome Report
-        uses: actions/upload-artifact@v2
-        with:
-          name: cypress-results
-          path: cypress/results  # Upload the results folder
-
-      - name: Upload Mochawesome HTML Report to GitHub Pages (optional)
-        if: success()  # Only upload if the tests are successful
-        run: |
-          mkdir -p docs/cypress-results
-          cp cypress/results/*.html docs/cypress-results/
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
-          git add .
-          git commit -m "Update Cypress results"
-          git push
+          npx cypress run
