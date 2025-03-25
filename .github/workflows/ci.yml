@@ -55,3 +55,23 @@ jobs:
           git add $REPORT_DIR || echo "No new results to commit."
           git commit -m "Update Cypress results" || echo "No changes to commit."
           git push || echo "No changes to push."
+
+         # ✅ Step 8: Generate and Upload Mochawesome Report
+      - name: Generate and Upload Mochawesome Report
+        if: always()
+        run: |
+          REPORT_DIR="docs/cypress-results"
+          mkdir -p $REPORT_DIR
+          
+          # Copy reports if available
+          cp -r cypress/results/*.html $REPORT_DIR/ || echo "No HTML reports found."
+          
+          # Force Git to detect changes
+          echo "Report generated on: $(date)" > $REPORT_DIR/timestamp.txt
+          
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add $REPORT_DIR
+          git commit -m "Update Cypress results" --allow-empty
+          git push
+  
