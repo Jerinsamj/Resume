@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run",  
-    "report": "npx mochawesome-merge cypress/results/*.json > cypress/results/report.json && npx mochawesome-report-generator cypress/results/report.json" // Merge reports and generate a final report
+    "report": "npx mochawesome-merge cypress/results/*.json > cypress/results/report.json && npx mochawesome-report-generator cypress/results/report.json" 
   },
   "keywords": [],
   "author": "",
