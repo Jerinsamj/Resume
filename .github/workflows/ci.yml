@@ -15,10 +15,10 @@ jobs:
 
       # Step 2: Cache Node.js dependencies for faster builds
       - name: Cache node modules
-        uses: actions/cache@v3  # Use actions/cache@v3 (latest version)
+        uses: actions/cache@v3
         with:
-          path: node_modules  # Cache the node_modules folder
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}  # Use package-lock.json hash for cache key
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
@@ -36,9 +36,10 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run
 
-      # Step 6: Upload Cypress test results
-      - name: Upload Cypress test results
-        uses: actions/upload-artifact@v2  # Changed to @v2 for compatibility
+      # Step 6: Upload Cypress screenshots
+      - name: Upload Cypress screenshots
+        uses: actions/upload-artifact@v2
         with:
-          name: cypress-results
-          path: cypress/results  # Ensure this path exists and contains the results
+          name: cypress-screenshots
+          path: cypress/screenshots  # Upload screenshots directory
+          if-no-files-found: warn  # Optional: Warn if no screenshots are found
