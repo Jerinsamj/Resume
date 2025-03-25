@@ -9,42 +9,40 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     steps:
-      # ✅ Step 1: Ensure Latest Code is Pulled
+      # ✅ Step 1: Force Checkout the Latest Version
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
-          ref: main
-          fetch-depth: 0  # Ensures full history is fetched
+          fetch-depth: 0  # Ensures full history is fetched to avoid caching issues
+          ref: main  # Ensures latest version of the main branch is checked out
 
-      # ✅ Step 2: Show Latest Commit
-      - name: Show latest commit
-        run: git log -1
-
-      # ✅ Step 3: Remove Old Files & Cache
-      - name: Remove old files & cache
+      # ✅ Step 2: Remove Any Cached Dependencies or Build Artifacts
+      - name: Remove cached dependencies and artifacts
         run: |
           rm -rf node_modules package-lock.json cypress/results docs/cypress-results
 
-      # ✅ Step 4: Set Up Node.js
+      # ✅ Step 3: Set Up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'  # Use latest stable version or 'lts/*'
 
-      # ✅ Step 5: Install dependencies
-      - name: Install dependencies
-        run: npm install # Use npm install to generate package-lock.json if it doesn't exist
-      
-      # ✅ Step 5.1: Install dependencies using npm ci
-      - name: Install dependencies using npm ci
-        run: npm ci # Ensures a clean install with no cache
-        if: steps.install_dependencies.outcome == 'success'
+      # ✅ Step 4: Force Install Dependencies (No Cache)
+            # Remove cache to force fresh install
+            name: Install dependencies
+            run: |
+              rm -rf node_modules package-lock.json
+              npm install
+
+      # ✅ Step 5: Verify Latest Commit is Being Used
+      - name: Show latest commit
+        run: git log -1  # Displays the latest commit in the GitHub Actions log
 
       # ✅ Step 6: Run Cypress Tests
       - name: Run Cypress tests
         uses: cypress-io/github-action@v5
         with:
-          browser: chrome
+          browser: chrome  # Run tests in Chrome browser
 
       # ✅ Step 7: Upload Cypress Test Results
       - name: Upload Cypress test results
@@ -52,16 +50,3 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cypress-results
-          path: cypress/results
-
-      # ✅ Step 8: Generate and Upload Mochawesome Report
-      - name: Generate and Upload Mochawesome Report
-        if: always()
-        run: |
-          mkdir -p docs/cypress-results
-          cp -r cypress/results/*.html docs/cypress-results/ || echo "No HTML reports found."
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
-          git add docs/cypress-results || echo "No new results to commit."
-          git commit -m "Update Cypress results" || echo "No changes to commit."
-          git push || echo "No changes to push."
