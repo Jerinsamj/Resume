@@ -1,7 +1,6 @@
-describe('Portfolio Website Testing', () => {
-  
-  // Visit the portfolio website
-  beforeEach(() => {
+describe('Automated Interaction with Website Button', () => {
+  it('should go to the website, click on the email button, and open the mail client', () => {
+    // Step 1: Visit the live website
     cy.visit('https://jerinsamj.github.io/Resume/');
   });
 
