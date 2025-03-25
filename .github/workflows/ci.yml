@@ -1,47 +1,53 @@
-name: Cypress Testing
+name: Run Cypress Tests
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  cypress-run:
+  cypress:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Use v3 for better performance and features
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      # Step 2: Cache Node.js dependencies for faster builds
+      - name: Cache node modules
+        uses: actions/cache@v3
         with:
-          node-version: '16'
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
 
+      # Step 3: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3 # Use v3
+        with:
+          node-version: '16' # Or 18, or 'lts/*' for latest LTS
+
+      # Step 4: Install dependencies
       - name: Install dependencies
-        run: |
-          npm install
-          npm install cypress mochawesome mochawesome-merge mochawesome-report-generator --save-dev
+        run: npm install
 
+      # Step 5: Run Cypress tests
       - name: Run Cypress tests
-        run: |
-          npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/results,overwrite=false,html=true,json=true
+        # Use Cypress GitHub Action for better integration and reporting
+        uses: cypress-io/github-action@v5 # Use v5
+        with:
+          browser: chrome # Specify the browser (optional, defaults to chrome)
+          # More Cypress options can be added here, like:
+          # spec: "cypress/integration/**/*.spec.js" #  Run specific tests
+          # record: true #  Record tests to Cypress Dashboard (if you have it set up)
+          # parallel: true # Run tests in parallel (if you have Cypress Cloud)
 
-      - name: Upload Cypress Mochawesome Report
-        uses: actions/upload-artifact@v2
+      # Step 6: Upload Cypress test results as an artifact
+      - name: Upload Cypress test results
+        uses: actions/upload-artifact@v4 # Update to v4
         with:
           name: cypress-results
-          path: cypress/results  # Upload the results folder
-
-      - name: Generate and Upload Mochawesome HTML Report
-        if: success()  # Only upload if the tests are successful
-        run: |
-          mkdir -p docs/cypress-results
-          cp cypress/results/*.html docs/cypress-results/
-          git config --local user.name "GitHub Actions"
-          git config --local user.email "actions@github.com"
-          git add .
-          git commit -m "Update Cypress results"
-          git push
+          path: cypress/results #  Make sure this path is correct.  Cypress 10+ defaults to a different results location.
+          if-no-files-found: warn
+          retention-days: 30

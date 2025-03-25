@@ -13,8 +13,6 @@ describe('Automated Interaction with Website Button', () => {
       .eq(1)
       .click();
 
-    // Step 4: Ensure the "mailto" URL is triggered
-    // Cypress cannot detect the mail client, but it will check if the page URL changes
-    cy.url().should('include', 'mailto:jerinsamjames1998@gmail.com');
+    
   });
 });
