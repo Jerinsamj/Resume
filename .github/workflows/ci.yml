@@ -1,4 +1,4 @@
-name: Run Cypress Tests and Download Results
+name: Run Cypress Tests
 
 on:
   push:
@@ -32,23 +32,11 @@ jobs:
         run: npx cypress run
 
       - name: Upload Cypress test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: cypress-results
-          path: cypress/results
-
-  download-artifacts:
-    runs-on: ubuntu-latest
-    needs: cypress  # Ensure this job runs after the Cypress tests
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Download the Cypress results artifact
-        uses: actions/download-artifact@v4.2.1
-        with:
-          name: cypress-results
-          path: ./artifacts
-          
-      - name: List downloaded files
-        run: ls ./artifacts
+          path: cypress/results  # Adjust this if the results are located elsewhere
+          if-no-files-found: warn
+          retention-days: 30
+          overwrite: true
+          include-hidden-files: true
