@@ -4,7 +4,7 @@ describe('Automated Interaction with Website Button', () => {
     cy.visit('https://jerinsamj.github.io/Resume/');
   });
 
-  // Test for correct greeting message
+  // Test for correct greeting
   it('should display the correct greeting message based on the time of day', () => {
     const greeting = cy.get('#greeting');
     const currentTime = new Date().getHours();
