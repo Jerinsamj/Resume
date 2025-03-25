@@ -2,6 +2,8 @@ describe('Portfolio Website Testing', () => {
   
   // Visit the portfolio website
   beforeEach(() => {
+     cy.clearCookies();
+     cy.clearLocalStorage();
     cy.visit('https://jerinsamj.github.io/Resume/');
   });
 
