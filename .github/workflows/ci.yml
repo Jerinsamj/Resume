@@ -13,9 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      # Step 2: Cache Node.js dependencies for faster builds (use actions/cache@v3)
+      # Step 2: Cache Node.js dependencies for faster builds
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v2
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
@@ -38,7 +38,7 @@ jobs:
 
       # Step 6: Upload Cypress test results (e.g., screenshots, videos, logs)
       - name: Upload Cypress test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2  # Use version v2 instead of v3
         with:
           name: cypress-results
-          path: cypress/results  # Adjust the path if necessary
+          path: cypress/results  # Make sure this path exists and contains the results
