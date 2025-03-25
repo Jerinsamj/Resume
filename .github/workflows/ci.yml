@@ -36,10 +36,13 @@ jobs:
       - name: Run Cypress tests
         run: npx cypress run
 
-      # Step 6: Upload Cypress screenshots
-      - name: Upload Cypress screenshots
-        uses: actions/upload-artifact@v2
+      # Step 6: Upload Cypress test results as an artifact
+      - name: Upload Cypress test results
+        uses: actions/upload-artifact@v2  # Use v2 (most stable)
         with:
-          name: cypress-screenshots
-          path: cypress/screenshots  # Upload screenshots directory
-          if-no-files-found: warn  # Optional: Warn if no screenshots are found
+          name: cypress-results  # Artifact name (optional, default is 'artifact')
+          path: cypress/results  # Path to the directory with the results (adjust as necessary)
+          if-no-files-found: warn  # Optional: If no files are found, output a warning (default is 'warn')
+          retention-days: 30  # Optional: Retain the artifact for 30 days (default is 90 days)
+          overwrite: true  # Optional: Overwrite existing artifacts with the same name (default is false)
+          include-hidden-files: true  # Optional: Include hidden files (default is false)
