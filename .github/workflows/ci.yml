@@ -64,4 +64,8 @@ jobs:
           git config --local user.email "actions@github.com"
           git add docs/cypress-results || echo "No new results to commit."
           git commit -m "Update Cypress results" || echo "No changes to commit."
+<<<<<<< HEAD
           git push || echo "No changes to push."
+=======
+          git push || echo "No changes to push."
+>>>>>>> a3d471e6e1ba6f3e5c503eb82e61501902607dc7
