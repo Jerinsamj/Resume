@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run",  // Run Cypress tests
+    "test": "npx cypress run",  
     "report": "npx mochawesome-merge cypress/results/*.json > cypress/results/report.json && npx mochawesome-report-generator cypress/results/report.json" // Merge reports and generate a final report
   },
   "keywords": [],
@@ -13,7 +13,7 @@
   "devDependencies": {
     "cypress": "^14.2.0",
     "mochawesome": "^7.1.3",
-    "mochawesome-merge": "^4.2.0",  // For merging JSON reports
-    "mochawesome-report-generator": "^5.0.0"  // For generating HTML reports from merged JSON
+    "mochawesome-merge": "^4.2.0", 
+    "mochawesome-report-generator": "^5.0.0" 
   }
 }
