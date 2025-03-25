@@ -9,34 +9,36 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Step 2: Cache Node.js dependencies for faster builds
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v3  # Use actions/cache@v3 (latest version)
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          path: node_modules  # Cache the node_modules folder
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}  # Use package-lock.json hash for cache key
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
+      # Step 3: Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm install
 
+      # Step 5: Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run
 
+      # Step 6: Upload Cypress test results
       - name: Upload Cypress test results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2  # Changed to @v2 for compatibility
         with:
           name: cypress-results
-          path: cypress/results  # Adjust this if the results are located elsewhere
-          if-no-files-found: warn
-          retention-days: 30
-          overwrite: true
-          include-hidden-files: true
+          path: cypress/results  # Ensure this path exists and contains the results
