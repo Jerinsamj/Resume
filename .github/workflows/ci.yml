@@ -11,7 +11,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Use v3 for better performance and features
 
       # Step 2: Cache Node.js dependencies for faster builds
       - name: Cache node modules
@@ -24,9 +24,9 @@ jobs:
 
       # Step 3: Set up Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3 # Use v3
         with:
-          node-version: '16'
+          node-version: '16' # Or 18, or 'lts/*' for latest LTS
 
       # Step 4: Install dependencies
       - name: Install dependencies
@@ -34,15 +34,20 @@ jobs:
 
       # Step 5: Run Cypress tests
       - name: Run Cypress tests
-        run: npx cypress run
+        # Use Cypress GitHub Action for better integration and reporting
+        uses: cypress-io/github-action@v5 # Use v5
+        with:
+          browser: chrome # Specify the browser (optional, defaults to chrome)
+          # More Cypress options can be added here, like:
+          # spec: "cypress/integration/**/*.spec.js" #  Run specific tests
+          # record: true #  Record tests to Cypress Dashboard (if you have it set up)
+          # parallel: true # Run tests in parallel (if you have Cypress Cloud)
 
       # Step 6: Upload Cypress test results as an artifact
       - name: Upload Cypress test results
-        uses: actions/upload-artifact@v2  # Use v2 (most stable)
+        uses: actions/upload-artifact@v3
         with:
-          name: cypress-results  # Artifact name (optional, default is 'artifact')
-          path: cypress/results  # Path to the directory with the results (adjust as necessary)
-          if-no-files-found: warn  # Optional: If no files are found, output a warning (default is 'warn')
-          retention-days: 30  # Optional: Retain the artifact for 30 days (default is 90 days)
-          overwrite: true  # Optional: Overwrite existing artifacts with the same name (default is false)
-          include-hidden-files: true  # Optional: Include hidden files (default is false)
+          name: cypress-results
+          path: cypress/results #  Make sure this path is correct.  Cypress 10+ defaults to a different results location.
+          if-no-files-found: warn
+          retention-days: 30
