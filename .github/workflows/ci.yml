@@ -20,20 +20,21 @@ jobs:
       - name: Show latest commit
         run: git log -1
 
-      # ✅ Step 3: Set Up Node.js & Cache Dependencies
+      # ✅ Step 3: Set Up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: 'npm'
+          cache: 'npm' # Consider caching, but ensure lock file is up-to-date
 
-      # ✅ Step 4: Install Dependencies (Use npm ci for clean install)
+      # ✅ Step 4: Install dependencies and create lockfile
       - name: Install dependencies
+        run: npm install #  Use npm install to ensure package-lock.json is up-to-date
+
+      # ✅ Step 5: Clean install with npm ci
+      - name: Clean install dependencies
         run: npm ci
-
-      # ✅ Step 5: Install dependencies
-      - name: Install dependencies
-        run: npm install
+        if: steps.install_dependencies.outcome == 'success' # only runs if previous step was successful
 
       # ✅ Step 6: Upload Cypress Test Results
       - name: Upload Cypress test results
