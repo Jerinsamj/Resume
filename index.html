@@ -100,11 +100,7 @@
                 opacity: 0;
             }
         }
-        h1 {
-      color: #333;
-      text-align: center;
-      margin-left: 200px; /* Adjust for sidebar */
-    }
+        
     .timestamp {
       color: #666;
       text-align: center;
@@ -160,16 +156,16 @@
     </style>
 </head>
 <body>
-    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
-    <p class="timestamp">Last updated: <span id="date"></span></p>
-
-  <!-- Sidebar Summary -->
+     <!-- Sidebar Summary -->
   <div class="test-summary">
+    <p class="timestamp">Last updated: <span id="date"></span></p>
     <div class="total">Total: <span id="total-tests">Loading...</span></div>
     <div class="passed">Passed: <span id="passed-tests">Loading...</span></div>
     <div class="failed">Failed: <span id="failed-tests">Loading...</span></div>
     <div class="pending">Pending: <span id="pending-tests">Loading...</span></div>
   </div>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
+
     <div class="hero">
         <h1 id="greeting"></h1>
         <p>Experienced IT professional specializing in software development, cloud technologies, and automation.</p>
