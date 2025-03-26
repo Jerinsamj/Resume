@@ -160,12 +160,6 @@
     </style>
 </head>
 <body>
-    <iframe 
-  src="https://jerinsamj.github.io/Resume/public/test-report/" 
-  width="100%" 
-  height="250px" 
-  frameborder="0"
-></iframe>
     <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
     <p class="timestamp">Last updated: <span id="date"></span></p>
 
@@ -363,7 +357,7 @@
         document.getElementById('date').textContent = new Date().toLocaleString();
 
     // Fetch JSON test results
-    fetch('./mochawesome.json')
+    fetch('./public/test-report/mochawesome.json')
       .then(response => {
         if (!response.ok) throw new Error("Test results file not found");
         return response.json();
