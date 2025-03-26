@@ -1,4 +1,3 @@
-/* script.js */
 document.addEventListener('DOMContentLoaded', function () {
     // Get current date
     document.getElementById('date').textContent = new Date().toLocaleString();
@@ -65,15 +64,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Chatbot functionality
     let knowledgeBase = [];
+    const chatbotStorageKey = 'chatbotKnowledgeBase';
 
-    fetch('src/questions.json')
-        .then(response => response.json())
-        .then(data => {
-            knowledgeBase = data.questions;
-        })
-        .catch(error => {
-            console.error('Error loading JSON data:', error);
-        });
+    // Load knowledge base from localStorage
+    if (localStorage.getItem(chatbotStorageKey)) {
+        try {
+            knowledgeBase = JSON.parse(localStorage.getItem(chatbotStorageKey));
+        } catch (error) {
+            console.error('Error parsing stored knowledge base:', error);
+            knowledgeBase = [];
+        }
+    } else {
+        // Fetch initial knowledge base from JSON file
+        fetch('src/questions.json')
+            .then(response => response.json())
+            .then(data => {
+                knowledgeBase = data.questions;
+                localStorage.setItem(chatbotStorageKey, JSON.stringify(knowledgeBase)); //save to local storage
+            })
+            .catch(error => {
+                console.error('Error loading JSON data:', error);
+            });
+    }
 
     const chatbotToggle = document.getElementById('chatbot-toggle');
     const chatbotModal = document.getElementById('chatbot-modal');
@@ -81,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatbox = document.getElementById('chatbox');
     const userInputField = document.getElementById('user-input');
     const sendButton = document.getElementById('send-btn');
-
 
     chatbotToggle.addEventListener('click', () => {
         chatbotModal.style.display = 'block';
@@ -102,59 +113,92 @@ document.addEventListener('DOMContentLoaded', function () {
         const userInput = userInputField.value.trim().toLowerCase();
         if (userInput === '') return;
 
-        // Show the user's message in the chatbox
         chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
 
-        // Get the best matching response from the knowledge base
         const response = getBestMatch(userInput);
 
-        // Show the chatbot's response in the chatbox
         chatbox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
 
-        // Scroll to the bottom of the chatbox to show the latest messages
         chatbox.scrollTop = chatbox.scrollHeight;
 
-        // Clear the input field
         userInputField.value = '';
     }
 
     function getBestMatch(query) {
         let bestMatch = '';
         let highestMatchScore = 0;
+        let matchedQuestion = null; // To store the matched question
 
         knowledgeBase.forEach(item => {
             const matchScore = calculateMatchScore(query, item.keywords);
             if (matchScore > highestMatchScore) {
                 highestMatchScore = matchScore;
                 bestMatch = item.answer;
+                matchedQuestion = item.question;
             }
         });
 
-        if (bestMatch === '') {
-            return "I'm sorry, I don't understand your question.";
-        }
+        if (highestMatchScore < 1) { // Changed from 0 to 1
+            bestMatch = "I'm sorry, I don't understand your question.  Please provide me with the correct answer.";
+            // Add an input for the user to provide the answer
+            chatbox.innerHTML += `
+                <div class="input-container">
+                    <input type="text" id="answer-input" placeholder="Enter the answer:">
+                    <button id="submit-answer-btn">Submit</button>
+                </div>
+            `;
+            const answerInput = document.getElementById('answer-input');
+            const submitAnswerBtn = document.getElementById('submit-answer-btn');
 
+            submitAnswerBtn.addEventListener('click', () => {
+                const newAnswer = answerInput.value.trim().toLowerCase();
+                if (newAnswer !== "") {
+                    learnNewResponse(query, newAnswer);
+                    chatbox.innerHTML += `<p><strong>Bot:</strong> Thank you, I have learned that.</p>`;
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                    // Remove the input elements
+                    answerInput.parentElement.remove();
+                } else {
+                    chatbox.innerHTML += `<p><strong>Bot:</strong> Please provide a valid answer.</p>`;
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                }
+            });
+        } else {
+            //show the matched question.
+            chatbox.innerHTML += `<p><strong>Bot:</strong> (Matched Question: ${matchedQuestion})</p>`;
+        }
         return bestMatch;
     }
 
     function calculateMatchScore(query, keywords) {
         let score = 0;
 
-        // Exact matches: increase score significantly for exact matches
         keywords.forEach(keyword => {
             if (query.includes(keyword.toLowerCase())) {
-                score += 2; // Exact match score
+                score += 2;
             }
         });
 
-        // Partial matches: increase score slightly for partial keyword matches
         keywords.forEach(keyword => {
             if (query.indexOf(keyword.toLowerCase()) !== -1) {
-                score += 1; // Partial match score
+                score += 1;
             }
         });
 
-        // Return the total score
         return score;
+    }
+
+    function learnNewResponse(newQuery, newAnswer) {
+        // Tokenize the query into keywords (very basic tokenization)
+        const newKeywords = newQuery.split(/\s+/).filter(word => word.length > 2); //simple tokenizer
+
+        // Add the new question and answer to the knowledge base
+        knowledgeBase.push({
+            question: newQuery,
+            keywords: newKeywords,
+            answer: newAnswer
+        });
+        // Save the updated knowledge base to localStorage
+        localStorage.setItem(chatbotStorageKey, JSON.stringify(knowledgeBase));
     }
 });
