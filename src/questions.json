@@ -1,0 +1,25 @@
+
+{
+  "questions": [
+    {
+      "keywords": ["resume", "cv", "download"],
+      "answer": "You can download my resume here: <a href=\"https://drive.google.com/file/d/1z5XAdHEFHMaG9qu38kSh8Ul61Jg3Or4r/view?usp=sharing\" download>Download Resume</a>"
+    },
+    {
+      "keywords": ["projects", "portfolio", "work"],
+      "answer": "Here are some of my projects: Please check the Career Projects section on the main page."
+    },
+    {
+      "keywords": ["contact", "email", "get in touch"],
+      "answer": "You can reach me at: jerinsamjames1998@gmail.com"
+    },
+    {
+      "keywords": ["skills", "abilities", "knowledge"],
+      "answer": "My main skills are: React.js, Python, C#, JavaScript, Power Platform, Cloud Computing, Cybersecurity, SQL."
+    },
+        {
+        "keywords": ["certifications", "certificate", "credentials"],
+        "answer": "I have these certifications: Computer Forensics, CompTIA A+, CISCO Cybersecurity Operations, Google UX/UI Designing, Microsoft Azure Administrator, SAP Technology Consultant, Cybersecurity Professional Certificate ISC2, AWS Cloud Certificate, Adobe Graphic Designer, Microsoft Azure Cloud, Microsoft Project Management, Geographic Information Systems (GIS), Front-End and Back-End Developer."
+    }
+  ]
+}

@@ -3,167 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerin Sam James | Portfolio</title>
+    <title>Jerin Sam James | Portfolio with Chatbot</title>
+    <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-    scroll-behavior: smooth;
-    transition: background 0.3s, color 0.3s;
-    overflow-x: hidden; /* Added to fix horizontal scrollbar */
-}
-        .container { max-width: 1100px; margin: auto; padding: 20px; }
-        header { background: #007bff; color: white; text-align: center; padding: 20px; font-size: 24px; font-weight: bold; }
-        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #007bff, #0056b3); color: white; animation: fadeIn 1.5s ease-in-out; }
-        .hero h1 { font-size: 36px; margin-bottom: 10px; }
-        .hero p { font-size: 18px; }
-        .download-btn { display: inline-block; margin-top: 10px; padding: 10px 20px; background: white; color: #007bff; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background 0.3s; }
-        .download-btn:hover { background: #ddd; }
-        .section-title { text-align: center; font-size: 24px; margin-bottom: 20px; font-weight: bold; }
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); border-radius: 10px; text-align: center; transition: transform 0.3s ease-in-out; }
-        .card:hover { transform: scale(1.05); }
-        .contact { text-align: center; margin-top: 30px; }
-        .contact a { margin: 0 10px; font-size: 24px; color: #007bff; text-decoration: none; transition: color 0.3s; }
-        .contact a:hover { color: #0056b3; }
-        footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .dark-mode { background: #1e1e1e; color: #f4f4f4; }
-        .dark-mode .card { background: #333; color: #f4f4f4; }
-        .dark-mode .hero { background: linear-gradient(135deg, #0056b3, #003f80); }
-        .toggle-btn { position: fixed; top: 20px; right: 20px; background: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
-        .toggle-btn:hover { background: #0056b3; }
-     .tech-icons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .tech-icons i {
-            margin: 5px;
-            font-size: 24px;
-        }
-        .tech-icons .fa-microsoft { color: #0078d4; }
-        .tech-icons .fa-tasks { color: #ffb900; }
-        .tech-icons .fa-envelope { color: #d13438; }
-        .tech-icons .fa-chart-bar { color: #107c10; }
-        .tech-icons .fa-share-alt { color: #603913; }
-        .tech-icons .fa-cogs { color: #0099bc; }
-        .tech-icons .fa-html5 { color: #e34c26; }
-        .tech-icons .fa-css3-alt { color: #2965f1; }
-        .tech-icons .fa-js { color: #f7df1e; }
-        .tech-icons .fa-database { color: #4285f4; }
-
-        .card-details {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .card.expanded .card-details {
-            display: block;
-        }
-
-        .expand-btn {
-            cursor: pointer;
-            text-align: center;
-            margin-top: 10px;
-        }
-      .maple-leaf {
-            position: absolute;
-            width: 30px; /* Adjust size */
-            height: 30px;
-            background-image: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiczFImeudRTKvhNFjmxonWc2vEXmmEy-epU3loqjw_7NRPmAzldq73v4YPHoPYFokPKSuRgecSj10hZKx1cX0k7UKtWtzkbCoGUje4FJG6ytInLi3FhilziyEXw4YnjOPNKMkAqLsc1HdP1UHq-26RWxM8cYuVf94srre2IDhwX_tusxN-iXLfoe8h6wTe/s500/snowflake.png');
-            background-size: contain;
-            animation: mapleFly 10s linear infinite; /* Animation */
-        }
-
-        @keyframes mapleFly {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-              opacity: 1;
-            }
-            50% {
-                transform: translate(calc(100vw - 30px), calc(100vh / 2)) rotate(360deg);
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translate(0, calc(100vh - 30px)) rotate(720deg);
-                opacity: 0;
-            }
-        }
-        
-        .timestamp {
-      color: #666;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    
-    
-    /* Position summary in the left corner */
-    .test-summary {
-  display: flex;
-  justify-content: flex-start; /* Aligns content to the left */
-  gap: 20px; /* Adds space between boxes */
-  padding: 10px;
-  margin: 10px auto; /* Centers the section horizontally */
-  max-width: 600px; /* Restricts width for proper centering */
-}
-
-    .test-summary div {
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: bold;
-      min-width: 100px;
-      text-align: center;
-    }
-
-    .total { background: #d3d3d3; }
-    .passed { background: #8bc34a; color: white; }
-    .failed { background: #f44336; color: white; }
-    .pending { background: #ffc107; color: black; }
-
-    .loading {
-      color: #777;
-      font-style: italic;
-      margin-top: 10px;
-      text-align: center;
-    }
-    
-    </style>
 </head>
 <body>
-    <p class="timestamp">Feature Automation Last updated: <span id="date"></span></p>   
-        <p class="loading" id="loading-message">Fetching test results...</p>
-    
+    <p class="timestamp">Feature Automation Last updated: <span id="date"></span></p>
+    <p class="loading" id="loading-message">Fetching test results...</p>
+
     <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
 
     <div class="hero">
-    
-            <!-- Test Summary in Left Corner -->
+        <div class="test-summary-container">
             <div class="test-summary">
-              <div class="total">Total: <span id="total-tests">Loading...</span></div>
-              <div class="passed">Passed: <span id="passed-tests">Loading...</span></div>
-              <div class="failed">Failed: <span id="failed-tests">Loading...</span></div>
-              <div class="pending">Pending: <span id="pending-tests">Loading...</span></div>
+                <div class="total">Total: <span id="total-tests">--</span></div>
+                <div class="passed">Passed: <span id="passed-tests">--</span></div>
+                <div class="failed">Failed: <span id="failed-tests">--</span></div>
+                <div class="pending">Pending: <span id="pending-tests">--</span></div>
             </div>
-        
+            <a href="/public/test-report/" target="_blank" class="view-report-btn">
+                View Full Cypress Report
+            </a>
+        </div>
         <h1 id="greeting"></h1>
         <p>Experienced IT professional specializing in software development, cloud technologies, and automation.</p>
         <a href="https://drive.google.com/file/d/1z5XAdHEFHMaG9qu38kSh8Ul61Jg3Or4r/view?usp=sharing" download class="download-btn">Download Resume</a>
+        <button id="chatbot-toggle">Open Chatbot</button>
     </div>
-    
+
     <div class="container">
-      <section>
+        <section>
             <h2 class="section-title">Career Projects</h2>
             <div class="cards">
                 <div class="card">
@@ -232,7 +101,7 @@
                 </div>
             </div>
         </section>
-      <section>
+        <section>
             <h2 class="section-title">Certifications</h2>
             <div class="cards">
                 <div class="card">Computer Forensics</div>
@@ -287,17 +156,17 @@
                 </div>
             </div>
         </section>
-       <section>
-          <h2 class="section-title">Education</h2>
-          <div class="cards">
-              <div class="card">
-                  <h3>Diploma in Software System Developer: Computer Science (2 years)</h3>
-                  <p>Mohawk College of Applied Arts and Technology - Hamilton, ON</p>
-              </div>
-          </div>
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Diploma in Software System Developer: Computer Science (2 years)</h3>
+                    <p>Mohawk College of Applied Arts and Technology - Hamilton, ON</p>
+                </div>
+            </div>
         </section>
     </div>
-    
+
     <footer>
         <h2>Get in Touch</h2>
         <div class="contact">
@@ -306,61 +175,15 @@
         </div>
     </footer>
 
-    <script>
-        function getGreeting() {
-            let hour = new Date().getHours();
-            if (hour < 12) return "Good Morning, I'm Jerin!";
-            if (hour < 18) return "Good Afternoon, I'm Jerin!";
-            return "Good Evening, I'm Jerin!";
-        }
-        document.getElementById("greeting").textContent = getGreeting();
-        
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-        }
-       function toggleCardDetails(cardElement) {
-            cardElement.classList.toggle("expanded");
-            const icon = cardElement.querySelector(".expand-btn i");
-            if (cardElement.classList.contains("expanded")) {
-                icon.classList.remove("fa-chevron-down");
-                icon.classList.add("fa-chevron-up");
-            } else {
-                icon.classList.remove("fa-chevron-up");
-                icon.classList.add("fa-chevron-down");
-            }
-        }
-       // Create and animate maple leaves
-        function createMapleLeaves() {
-            for (let i = 0; i < 10; i++) { // Adjust number of leaves
-                const mapleLeaf = document.createElement('div');
-                mapleLeaf.classList.add('maple-leaf');
-                mapleLeaf.style.left = `${Math.random() * 100}vw`; // Random horizontal start
-                mapleLeaf.style.top = `${Math.random() * 100}vh`; // Random vertical start
-                mapleLeaf.style.animationDelay = `${Math.random() * 5}s`; // Random delay
-                document.body.appendChild(mapleLeaf);
-            }
-        }
-        document.getElementById('date').textContent = new Date().toLocaleString();
+    <div id="chatbot-modal" style="display: none;">
+        <button id="chatbot-close">X</button>
+        <div class="chatbox" id="chatbox"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ask a question...">
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
 
-    // Fetch JSON test results
-    fetch('./public/test-report/mochawesome.json')
-      .then(response => {
-        if (!response.ok) throw new Error("Test results file not found");
-        return response.json();
-      })
-      .then(data => {
-        document.getElementById('total-tests').textContent = data.stats.tests;
-        document.getElementById('passed-tests').textContent = data.stats.passes;
-        document.getElementById('failed-tests').textContent = data.stats.failures;
-        document.getElementById('pending-tests').textContent = data.stats.pending;
-        document.getElementById('loading-message').style.display = "none"; // Hide loading message
-      })
-      .catch(error => {
-        console.error('Error loading test results:', error);
-        document.getElementById('loading-message').textContent = "Test results unavailable.";
-      });
-
-        createMapleLeaves();
-    </script>
+    <script src="src/script.js"></script>
 </body>
 </html>
