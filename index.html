@@ -119,13 +119,13 @@
     
     /* Position summary in the left corner */
     .test-summary {
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      display: flex;
-      flex-direction: row;
-      gap: 10px;
-    }
+  display: flex;
+  justify-content: flex-start; /* Aligns content to the left */
+  gap: 20px; /* Adds space between boxes */
+  padding: 10px;
+  margin: 10px auto; /* Centers the section horizontally */
+  max-width: 600px; /* Restricts width for proper centering */
+}
 
     .test-summary div {
       padding: 10px;
@@ -151,22 +151,21 @@
     </style>
 </head>
 <body>
-    <p class="timestamp">Feature Automation Last updated: <span id="date"></span></p>
-    <div class="report-container">
-        <!-- Test Summary in Left Corner -->
-        <div class="test-summary">
-          <div class="total">Total: <span id="total-tests">Loading...</span></div>
-          <div class="passed">Passed: <span id="passed-tests">Loading...</span></div>
-          <div class="failed">Failed: <span id="failed-tests">Loading...</span></div>
-          <div class="pending">Pending: <span id="pending-tests">Loading...</span></div>
-        </div>
-    </div>
-    
+    <p class="timestamp">Feature Automation Last updated: <span id="date"></span></p>   
         <p class="loading" id="loading-message">Fetching test results...</p>
     
     <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
 
     <div class="hero">
+        <div class="report-container">
+            <!-- Test Summary in Left Corner -->
+            <div class="test-summary">
+              <div class="total">Total: <span id="total-tests">Loading...</span></div>
+              <div class="passed">Passed: <span id="passed-tests">Loading...</span></div>
+              <div class="failed">Failed: <span id="failed-tests">Loading...</span></div>
+              <div class="pending">Pending: <span id="pending-tests">Loading...</span></div>
+            </div>
+        </div>
         <h1 id="greeting"></h1>
         <p>Experienced IT professional specializing in software development, cloud technologies, and automation.</p>
         <a href="https://drive.google.com/file/d/1z5XAdHEFHMaG9qu38kSh8Ul61Jg3Or4r/view?usp=sharing" download class="download-btn">Download Resume</a>
