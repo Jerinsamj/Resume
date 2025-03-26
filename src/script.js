@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Chatbot functionality
     let knowledgeBase = [];
 
-    fetch('questions.json')
+    fetch('src/questions.json')
         .then(response => response.json())
         .then(data => {
             knowledgeBase = data.questions;
