@@ -63,98 +63,77 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // Chatbot functionality
-    let knowledgeBase = [];
+        let knowledgeBase = [];
 
-    fetch('src/questions.json')
-        .then(response => response.json())
-        .then(data => {
-            knowledgeBase = data.questions;
-        })
-        .catch(error => {
-            console.error('Error loading JSON data:', error);
-        });
+        fetch('src/questions.json')
+            .then(response => response.json())
+            .then(data => {
+                knowledgeBase = data.questions;
+            })
+            .catch(error => {
+                console.error('Error loading JSON data:', error);
+            });
 
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotModal = document.getElementById('chatbot-modal');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbox = document.getElementById('chatbox');
-    const userInputField = document.getElementById('user-input');
-    const sendButton = document.getElementById('send-btn');
+        // Function to send user query
+        function sendQuery() {
+            const userInput = document.getElementById("user-input").value.trim().toLowerCase();
+            if (userInput === '') return;
 
+            // Show the user's message in the chatbox
+            document.getElementById("chatbox").innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
 
-    chatbotToggle.addEventListener('click', () => {
-        chatbotModal.style.display = 'block';
-    });
+            // Get the best matching response from the knowledge base
+            const response = getBestMatch(userInput);
 
-    chatbotClose.addEventListener('click', () => {
-        chatbotModal.style.display = 'none';
-    });
+            // Show the chatbot's response in the chatbox
+            document.getElementById("chatbox").innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
 
-    sendButton.addEventListener('click', sendQuery);
-    userInputField.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            sendQuery();
-        }
-    });
+            // Scroll to the bottom of the chatbox to show the latest messages
+            document.getElementById("chatbox").scrollTop = document.getElementById("chatbox").scrollHeight;
 
-    function sendQuery() {
-        const userInput = userInputField.value.trim().toLowerCase();
-        if (userInput === '') return;
-
-        // Show the user's message in the chatbox
-        chatbox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-
-        // Get the best matching response from the knowledge base
-        const response = getBestMatch(userInput);
-
-        // Show the chatbot's response in the chatbox
-        chatbox.innerHTML += `<p><strong>Bot:</strong> ${response}</p>`;
-
-        // Scroll to the bottom of the chatbox to show the latest messages
-        chatbox.scrollTop = chatbox.scrollHeight;
-
-        // Clear the input field
-        userInputField.value = '';
-    }
-
-    function getBestMatch(query) {
-        let bestMatch = '';
-        let highestMatchScore = 0;
-
-        knowledgeBase.forEach(item => {
-            const matchScore = calculateMatchScore(query, item.keywords);
-            if (matchScore > highestMatchScore) {
-                highestMatchScore = matchScore;
-                bestMatch = item.answer;
-            }
-        });
-
-        if (bestMatch === '') {
-            return "I'm sorry, I don't understand your question.";
+            // Clear the input field
+            document.getElementById("user-input").value = '';
         }
 
-        return bestMatch;
-    }
+        // Function to find the best matching response
+        function getBestMatch(query) {
+            let bestMatch = '';
+            let highestMatchScore = 0;
 
-    function calculateMatchScore(query, keywords) {
-        let score = 0;
+            knowledgeBase.forEach(item => {
+                const matchScore = calculateMatchScore(query, item.keywords);
+                if (matchScore > highestMatchScore) {
+                    highestMatchScore = matchScore;
+                    bestMatch = item.answer;
+                }
+            });
 
-        // Exact matches: increase score significantly for exact matches
-        keywords.forEach(keyword => {
-            if (query.includes(keyword.toLowerCase())) {
-                score += 2; // Exact match score
+            if (bestMatch === '') {
+                return "I'm sorry, I don't understand your question.";
             }
-        });
 
-        // Partial matches: increase score slightly for partial keyword matches
-        keywords.forEach(keyword => {
-            if (query.indexOf(keyword.toLowerCase()) !== -1) {
-                score += 1; // Partial match score
-            }
-        });
+            return bestMatch;
+        }
 
-        // Return the total score
-        return score;
-    }
+        // Function to calculate the match score based on keywords
+        function calculateMatchScore(query, keywords) {
+            let score = 0;
+
+            // Exact matches: increase score significantly for exact matches
+            keywords.forEach(keyword => {
+                if (query.includes(keyword.toLowerCase())) {
+                    score += 2; // Exact match score
+                }
+            });
+
+            // Partial matches: increase score slightly for partial keyword matches
+            keywords.forEach(keyword => {
+                if (query.indexOf(keyword.toLowerCase()) !== -1) {
+                    score += 1; // Partial match score
+                }
+            });
+
+            // Return the total score
+            return score;
+        }
 });
