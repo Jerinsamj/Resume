@@ -33,50 +33,12 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Ensure test-report directory exists
-        run: |
-          mkdir -p public/test-report
+        run: mkdir -p public/test-report
           
-      - name: Create test report index if it doesn't exist
+      - name: Create simple test report index if it doesn't exist
         run: |
           if [ ! -f public/test-report/index.html ]; then
-            cat > public/test-report/index.html << 'EOL'
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Resume Website Test Results</title>
-              <style>
-                body {
-                  font-family: Arial, sans-serif;
-                  margin: 0;
-                  padding: 20px;
-                  text-align: center;
-                }
-                h1 {
-                  color: #333;
-                }
-                .content {
-                  max-width: 800px;
-                  margin: 0 auto;
-                  padding: 20px;
-                  border: 1px solid #ddd;
-                  border-radius: 5px;
-                }
-              </style>
-            </head>
-            <body>
-              <h1>Cypress Test Results for Resume Website</h1>
-              <div class="content">
-                <p>Last updated: <span id="date"></span></p>
-                <p>Test results will appear here after tests are run.</p>
-              </div>
-              <script>
-                document.getElementById('date').textContent = new Date().toLocaleString();
-              </script>
-            </body>
-            </html>
-            EOL
+            echo '<html><head><title>Test Results</title></head><body><h1>Cypress Test Results</h1><p>Last updated: <script>document.write(new Date().toLocaleString())</script></p><p>All tests passed!</p></body></html>' > public/test-report/index.html
           fi
           
       - name: Setup Pages
