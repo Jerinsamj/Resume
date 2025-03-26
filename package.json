@@ -4,14 +4,13 @@
   "description": "Simple Cypress tests for Resume Website",
   "scripts": {
     "test": "cypress run",
-    "report": "mochawesome-merge public/test-report/*.json > public/test-report/output.json && marge public/test-report/output.json --reportDir public/test-report"
+    "report": "mochawesome-merge cypress/reports/*.json > cypress/reports/output.json && marge cypress/reports/output.json --reportDir public"
   },
   "dependencies": {
     "cypress": "^12.14.0",
+    "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
     "mochawesome-report-generator": "^6.2.0"
-  },
-  "devDependencies": {
-    "mochawesome": "^7.1.3"
   }
 }
+
