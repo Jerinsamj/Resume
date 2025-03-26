@@ -1,25 +1,64 @@
 {
     "questions": [
-      {
-        "question": "What are your skills?",
-        "keywords": ["skills", "experience", "abilities", "strengths"],
-        "answer": "I am proficient in software development, web development, cybersecurity, machine learning, and cloud technologies."
-      },
-      {
-        "question": "How much experience do you have?",
-        "keywords": ["experience", "years", "background", "work"],
-        "answer": "I have over 5 years of experience in IT, software development, and system administration."
-      },
-      {
-        "question": "What technologies do you use?",
-        "keywords": ["technologies", "tools", "languages"],
-        "answer": "I work with technologies like JavaScript, Python, Power BI, Azure, AWS, React.js, and more."
-      },
-      {
-        "question": "How do you handle project deadlines?",
-        "keywords": ["deadline", "timelines", "projects", "manage"],
-        "answer": "I prioritize tasks based on urgency and importance to ensure all project deadlines are met."
-      }
+        {
+            "keywords": ["ticketing system", "service request", "power platform", "planner", "outlook", "power bi", "sharepoint"],
+            "answer": "The custom ticketing system was developed using Microsoft Power Platform, Planner, Outlook, Power BI, and SharePoint to enhance service request management and workflow automation.  It improved efficiency, automation, and data-driven decision-making."
+        },
+        {
+            "keywords": ["data accessibility", "responsive app", "microsoft services", "city of hamilton"],
+            "answer": "A responsive app was built using Microsoft services to enhance data accessibility and creation across all platforms for City of Hamilton employees. Users can upload data from any device, and tasks are automatically added to Planner with notifications."
+        },
+        {
+            "keywords": ["data visualization", "dashboard", "water", "wastewater", "city of hamilton"],
+            "answer": "An interactive dashboard was designed to monitor real-time data for Hamilton's Water and Wastewater department.  This increased data accessibility for water PH levels, problem locations, and visit tracking."
+        },
+        {
+            "keywords": ["eme officer", "performance", "dashboard", "city of hamilton"],
+            "answer": "An interactive dashboard was designed to monitor the performance of Environment Monitoring and Enforcement officers.  This increased data accessibility for task completion, location visits, resolution methods, and risk levels."
+        },
+        {
+            "keywords": ["resume", "download"],
+            "answer": "You can download my resume from the link provided on the main page."
+        },
+        {
+            "keywords": ["contact", "get in touch", "email", "github"],
+            "answer": "You can reach me via email at jerinsamjames1998@gmail.com or connect with me on GitHub at https://github.com/Jerinsamj/Projects."
+        },
+        {
+            "keywords": ["skills", "technologies", "languages"],
+            "answer": "My skills include React.js, Python, C#, JavaScript, Power Platform, Cloud Computing (Azure, AWS), Cybersecurity, and SQL."
+        },
+        {
+            "keywords": ["education", "degree", "college"],
+            "answer": "I have a Diploma in Software System Developer: Computer Science from Mohawk College of Applied Arts and Technology."
+        },
+        {
+            "keywords": ["work experience", "employment", "previous jobs"],
+            "answer": "My work experience includes roles at City of Hamilton (Environmental Quality and Compliance Technologist), CyberTech (Information System Administrator), and Econo (Assistant Manager)."
+        },
+        {
+            "keywords": ["certifications", "certificates"],
+            "answer": "I hold certifications in Computer Forensics, CompTIA A+, CISCO Cybersecurity Operations, Google UX/UI Design, Microsoft Azure Administration, SAP Technology Consulting, and more."
+        },
+        {
+            "question": "What are your skills?",
+            "keywords": ["skills", "experience", "abilities", "strengths"],
+            "answer": "I am proficient in software development, web development, cybersecurity, machine learning, and cloud technologies."
+        },
+        {
+            "question": "How much experience do you have?",
+            "keywords": ["experience", "years", "background", "work"],
+            "answer": "I have over 5 years of experience in IT, software development, and system administration."
+        },
+        {
+            "question": "What technologies do you use?",
+            "keywords": ["technologies", "tools", "languages"],
+            "answer": "I work with technologies like JavaScript, Python, Power BI, Azure, AWS, React.js, and more."
+        },
+        {
+            "question": "How do you handle project deadlines?",
+            "keywords": ["deadline", "timelines", "projects", "manage"],
+            "answer": "I prioritize tasks based on urgency and importance to ensure all project deadlines are met."
+        }
     ]
-  }
-  
+}
