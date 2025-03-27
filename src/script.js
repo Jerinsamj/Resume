@@ -199,6 +199,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Minimize and maximize test summary
+    document.querySelector('.test-summary-icons').addEventListener('click', () => {
+        const summaryContainer = document.querySelector('.test-summary-container');
+        const summaryIcons = document.querySelector('.test-summary-icons');
+        summaryContainer.style.display = 'flex';
+        summaryIcons.style.display = 'none';
+    });
+
+    document.querySelector('.test-summary-container').addEventListener('click', () => {
+        const summaryContainer = document.querySelector('.test-summary-container');
+        const summaryIcons = document.querySelector('.test-summary-icons');
+        summaryContainer.style.display = 'none';
+        summaryIcons.style.display = 'flex';
+    });
+
     // Call toggleTestSummary on window resize
     window.addEventListener('resize', toggleTestSummary);
     toggleTestSummary(); // Initial call
