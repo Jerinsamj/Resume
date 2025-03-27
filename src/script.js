@@ -53,6 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('passed-tests').textContent = data.stats.passes;
             document.getElementById('failed-tests').textContent = data.stats.failures;
             document.getElementById('pending-tests').textContent = data.stats.pending;
+
+            // Update minimized icons
+            document.getElementById('icon-total-tests').textContent = data.stats.tests;
+            document.getElementById('icon-passed-tests').textContent = data.stats.passes;
+            document.getElementById('icon-failed-tests').textContent = data.stats.failures;
+            document.getElementById('icon-pending-tests').textContent = data.stats.pending;
+
             document.getElementById('loading-message').style.display = "none"; // Hide loading message
         })
         .catch(error => {
@@ -178,4 +185,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return score;
     }
+
+    // Toggle test summary visibility
+    function toggleTestSummary() {
+        const summaryContainer = document.querySelector('.test-summary-container');
+        const summaryIcons = document.querySelector('.test-summary-icons');
+        if (window.innerWidth <= 768) {
+            summaryContainer.style.display = 'none';
+            summaryIcons.style.display = 'flex';
+        } else {
+            summaryContainer.style.display = 'flex';
+            summaryIcons.style.display = 'none';
+        }
+    }
+
+    // Call toggleTestSummary on window resize
+    window.addEventListener('resize', toggleTestSummary);
+    toggleTestSummary(); // Initial call
 });
