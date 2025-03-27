@@ -508,3 +508,23 @@ footer {
         transform: translateY(0);
     }
 }
+
+.minimized-icon {
+    position: fixed;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 20px;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+.minimized-icon:hover {
+    background: #0056b3;
+}
