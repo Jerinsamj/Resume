@@ -15,17 +15,12 @@
 
     <div class="hero">
         <div class="test-summary-container">
+            <button class="minimize-btn" onclick="toggleTestSummary()">-</button>
             <div class="test-summary">
                 <div class="total">Total: <span id="total-tests">--</span></div>
                 <div class="passed">Passed: <span id="passed-tests">--</span></div>
                 <div class="failed">Failed: <span id="failed-tests">--</span></div>
                 <div class="pending">Pending: <span id="pending-tests">--</span></div>
-            </div>
-            <div class="test-summary-icons">
-                <div class="total" title="Total Tests"><span id="icon-total-tests">--</span></div>
-                <div class="passed" title="Passed Tests"><span id="icon-passed-tests">--</span></div>
-                <div class="failed" title="Failed Tests"><span id="icon-failed-tests">--</span></div>
-                <div class="pending" title="Pending Tests"><span id="icon-pending-tests">--</span></div>
             </div>
             <a href="./public/test-report/" target="_blank" class="view-report-btn">
                 View Full Cypress Report

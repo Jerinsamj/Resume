@@ -214,6 +214,11 @@ document.addEventListener('DOMContentLoaded', function () {
         summaryIcons.style.display = 'flex';
     });
 
+    window.toggleTestSummary = function () {
+        const summaryContainer = document.querySelector('.test-summary-container');
+        summaryContainer.classList.toggle('minimized');
+    };
+
     // Call toggleTestSummary on window resize
     window.addEventListener('resize', toggleTestSummary);
     toggleTestSummary(); // Initial call

@@ -282,6 +282,33 @@ footer {
     flex-direction: column;
     gap: 10px;
     min-width: 150px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.test-summary-container.minimized {
+    transform: scale(0.5);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.minimize-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.minimize-btn:hover {
+    background: #d32f2f;
 }
 
 .test-summary div {
