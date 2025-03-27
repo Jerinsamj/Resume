@@ -151,29 +151,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const availableKeywords = knowledgeBase.flatMap(item => item.keywords).slice(0, 5).join(', ');
             bestMatch += availableKeywords;
 
-            // Add an input for the user to provide the answer
-            chatbox.innerHTML += `
-                <div class="input-container">
-                    <input type="text" id="answer-input" placeholder="Enter the answer:">
-                    <button id="submit-answer-btn">Submit</button>
-                </div>
-            `;
-            const answerInput = document.getElementById('answer-input');
-            const submitAnswerBtn = document.getElementById('submit-answer-btn');
-
-            submitAnswerBtn.addEventListener('click', () => {
-                const newAnswer = answerInput.value.trim().toLowerCase();
-                if (newAnswer !== "") {
-                    learnNewResponse(query, newAnswer);
-                    chatbox.innerHTML += `<p><strong>Bot:</strong> Thank you, I have learned that.</p>`;
-                    chatbox.scrollTop = chatbox.scrollHeight;
-                    // Remove the input elements
-                    answerInput.parentElement.remove();
-                } else {
-                    chatbox.innerHTML += `<p><strong>Bot:</strong> Please provide a valid answer.</p>`;
-                    chatbox.scrollTop = chatbox.scrollHeight;
-                }
-            });
+            chatbox.innerHTML += `<p><strong>Bot:</strong> ${bestMatch}</p>`;
+            chatbox.scrollTop = chatbox.scrollHeight;
         } else {
             // Show the matched question and answer.
             chatbox.innerHTML += `<p><strong>Bot:</strong> (Matched Question: ${matchedQuestion})</p>`;
@@ -198,19 +177,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         return score;
-    }
-
-    function learnNewResponse(newQuery, newAnswer) {
-        // Tokenize the query into keywords (very basic tokenization)
-        const newKeywords = newQuery.split(/\s+/).filter(word => word.length > 2); //simple tokenizer
-
-        // Add the new question and answer to the knowledge base
-        knowledgeBase.push({
-            question: newQuery,
-            keywords: newKeywords,
-            answer: newAnswer
-        });
-        // Save the updated knowledge base to localStorage
-        localStorage.setItem(chatbotStorageKey, JSON.stringify(knowledgeBase));
     }
 });
