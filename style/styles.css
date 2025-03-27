@@ -283,12 +283,13 @@ footer {
     gap: 10px;
     min-width: 150px;
     transition: transform 0.3s, opacity 0.3s;
+    pointer-events: auto; /* Enable interactions when not minimized */
 }
 
 .test-summary-container.minimized {
     transform: scale(0.5);
     opacity: 0.5;
-    pointer-events: none; /* Disable interactions */
+    pointer-events: none; /* Disable interactions when minimized */
     transition: transform 0.3s, opacity 0.3s;
 }
 

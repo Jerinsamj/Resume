@@ -11,19 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     document.getElementById("greeting").textContent = getGreeting();
 
-    // Change background based on the time
-    function setBackgroundBasedOnTime() {
-        const hour = new Date().getHours();
-        if (hour < 12) {
-            document.body.style.background = "linear-gradient(135deg, #FFDDC1, #FFABAB)"; // Morning
-        } else if (hour < 18) {
-            document.body.style.background = "linear-gradient(135deg, #FFD700, #FFA500)"; // Afternoon
-        } else {
-            document.body.style.background = "linear-gradient(135deg, #2C3E50, #4CA1AF)"; // Evening
-        }
-    }
-    setBackgroundBasedOnTime();
-
     // Dark mode toggle
     window.toggleDarkMode = function () { // Made it global
         document.body.classList.toggle("dark-mode");
@@ -198,10 +185,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const summaryContainer = document.querySelector('.test-summary-container');
         if (summaryContainer.classList.contains('minimized')) {
             summaryContainer.classList.remove('minimized');
-            summaryContainer.style.pointerEvents = 'auto'; // Enable interactions
         } else {
             summaryContainer.classList.add('minimized');
-            summaryContainer.style.pointerEvents = 'none'; // Disable interactions
         }
     }
 
@@ -210,10 +195,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const summaryContainer = document.querySelector('.test-summary-container');
         if (window.innerWidth < 768) {
             summaryContainer.classList.add('minimized');
-            summaryContainer.style.pointerEvents = 'none';
         } else {
             summaryContainer.classList.remove('minimized');
-            summaryContainer.style.pointerEvents = 'auto';
         }
     }
 
