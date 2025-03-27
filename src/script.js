@@ -145,9 +145,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (highestMatchScore < 1) {
-            bestMatch = "I'm sorry, I don't understand your question. Here are some keywords you can try: ";
-            const availableKeywords = knowledgeBase.flatMap(item => item.keywords).slice(0, 5).join(', ');
-            bestMatch += availableKeywords;
+            bestMatch = "I'm sorry, I don't understand your question. Here are some questions you can try: ";
+            const availableQuestions = knowledgeBase
+                .map(item => item.question)
+                .sort(() => Math.random() - 0.5) // Randomize the order
+                .slice(0, 5) // Limit to 5 questions
+                .join(', ');
+            bestMatch += availableQuestions;
         }
 
         return bestMatch; // Ensure only one answer is returned
@@ -155,17 +159,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function calculateMatchScore(query, keywords) {
         let score = 0;
+        const queryWords = query.split(/\s+/); // Split query into words
 
         keywords.forEach(keyword => {
-            if (query.includes(keyword.toLowerCase())) {
-                score += 2;
-            }
-        });
-
-        keywords.forEach(keyword => {
-            if (query.indexOf(keyword.toLowerCase()) !== -1) {
-                score += 1;
-            }
+            const lowerKeyword = keyword.toLowerCase();
+            queryWords.forEach(word => {
+                if (word === lowerKeyword) {
+                    score += 2; // Exact match
+                } else if (word.includes(lowerKeyword)) {
+                    score += 1; // Partial match
+                }
+            });
         });
 
         return score;
