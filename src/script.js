@@ -241,8 +241,17 @@ document.addEventListener('DOMContentLoaded', function () {
         var time = document.getElementById('time').value || "N/A";
 
         if (name) {
-            var subject = encodeURIComponent("Interview Availability");
-            var body = encodeURIComponent(`Hello,\n\nI am available for an interview on ${date} at ${time}.\n\nBest regards,\n${name}\n${company}`);
+            var subject = encodeURIComponent("Interview Confirmation");
+            var body = encodeURIComponent(`Hi Jerin,
+
+My name is ${name}, and I am writing to confirm my interview with ${company}. I am available on ${date} at ${time} as scheduled.
+
+Please let me know if there is any change on the date. I look forward to speaking with you.
+
+Thank you.
+
+Best regards,
+${name}`);
             var mailtoLink = `mailto:hr@example.com?subject=${subject}&body=${body}`;
             window.location.href = mailtoLink;
 

@@ -66,13 +66,11 @@ header {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-    border: 1px solid #007bff;
+    transition: background 0.3s;
 }
 
 .invite-btn:hover {
     background: #ddd;
-    color: #0056b3;
 }
 
 .section-title {
