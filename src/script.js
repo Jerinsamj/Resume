@@ -67,12 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('failed-tests').textContent = data.stats.failures;
             document.getElementById('pending-tests').textContent = data.stats.pending;
 
-            // Update minimized icons
-            document.getElementById('icon-total-tests').textContent = data.stats.tests;
-            document.getElementById('icon-passed-tests').textContent = data.stats.passes;
-            document.getElementById('icon-failed-tests').textContent = data.stats.failures;
-            document.getElementById('icon-pending-tests').textContent = data.stats.pending;
-
             document.getElementById('loading-message').style.display = "none"; // Hide loading message
         })
         .catch(error => {
@@ -202,34 +196,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // Toggle test summary visibility
     function toggleTestSummary() {
         const summaryContainer = document.querySelector('.test-summary-container');
-        const summaryIcons = document.querySelector('.test-summary-icons');
         if (summaryContainer.classList.contains('minimized')) {
             summaryContainer.classList.remove('minimized');
-            summaryIcons.style.display = 'none';
         } else {
             summaryContainer.classList.add('minimized');
-            summaryIcons.style.display = 'flex';
+        }
+    }
+
+    // Ensure proper initialization of test summary visibility
+    function initializeTestSummary() {
+        const summaryContainer = document.querySelector('.test-summary-container');
+        if (window.innerWidth < 768) {
+            summaryContainer.classList.add('minimized');
+        } else {
+            summaryContainer.classList.remove('minimized');
         }
     }
 
     // Minimize and maximize test summary
-    document.querySelector('.test-summary-icons').addEventListener('click', () => {
-        const summaryContainer = document.querySelector('.test-summary-container');
-        const summaryIcons = document.querySelector('.test-summary-icons');
-        summaryContainer.classList.remove('minimized');
-        summaryIcons.style.display = 'none';
-    });
-
     document.querySelector('.test-summary-container .minimize-btn').addEventListener('click', () => {
         toggleTestSummary();
     });
 
-    window.toggleTestSummary = function () {
-        const summaryContainer = document.querySelector('.test-summary-container');
-        summaryContainer.classList.toggle('minimized');
-    };
+    window.toggleTestSummary = toggleTestSummary;
 
-    // Call toggleTestSummary on window resize
-    window.addEventListener('resize', toggleTestSummary);
-    toggleTestSummary(); // Initial call
+    // Call initializeTestSummary on window resize
+    window.addEventListener('resize', initializeTestSummary);
+    initializeTestSummary(); // Initial call
 });
