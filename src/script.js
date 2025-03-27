@@ -147,7 +147,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (highestMatchScore < 1) { // Changed from 0 to 1
-            bestMatch = "I'm sorry, I don't understand your question.  Please provide me with the correct answer.";
+            bestMatch = "I'm sorry, I don't understand your question. Here are some keywords you can try: ";
+            const availableKeywords = knowledgeBase.flatMap(item => item.keywords).slice(0, 5).join(', ');
+            bestMatch += availableKeywords;
+
             // Add an input for the user to provide the answer
             chatbox.innerHTML += `
                 <div class="input-container">
@@ -172,8 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         } else {
-            //show the matched question.
+            // Show the matched question and answer.
             chatbox.innerHTML += `<p><strong>Bot:</strong> (Matched Question: ${matchedQuestion})</p>`;
+            chatbox.innerHTML += `<p><strong>Bot:</strong> ${bestMatch}</p>`;
         }
         return bestMatch;
     }
