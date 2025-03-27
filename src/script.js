@@ -252,7 +252,7 @@ Thank you.
 
 Best regards,
 ${name}`);
-            var mailtoLink = `mailto:hr@example.com?subject=${subject}&body=${body}`;
+            var mailtoLink = `mailto:jerinsamjames1998@gmail.com?subject=${subject}&body=${body}`;
             window.location.href = mailtoLink;
 
             // Store the user's name in localStorage
