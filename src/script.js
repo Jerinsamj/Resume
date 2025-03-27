@@ -190,12 +190,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function toggleTestSummary() {
         const summaryContainer = document.querySelector('.test-summary-container');
         const summaryIcons = document.querySelector('.test-summary-icons');
-        if (window.innerWidth <= 768) {
-            summaryContainer.style.display = 'none';
-            summaryIcons.style.display = 'flex';
-        } else {
-            summaryContainer.style.display = 'flex';
+        if (summaryContainer.classList.contains('minimized')) {
+            summaryContainer.classList.remove('minimized');
             summaryIcons.style.display = 'none';
+        } else {
+            summaryContainer.classList.add('minimized');
+            summaryIcons.style.display = 'flex';
         }
     }
 
@@ -203,15 +203,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.test-summary-icons').addEventListener('click', () => {
         const summaryContainer = document.querySelector('.test-summary-container');
         const summaryIcons = document.querySelector('.test-summary-icons');
-        summaryContainer.style.display = 'flex';
+        summaryContainer.classList.remove('minimized');
         summaryIcons.style.display = 'none';
     });
 
-    document.querySelector('.test-summary-container').addEventListener('click', () => {
-        const summaryContainer = document.querySelector('.test-summary-container');
-        const summaryIcons = document.querySelector('.test-summary-icons');
-        summaryContainer.style.display = 'none';
-        summaryIcons.style.display = 'flex';
+    document.querySelector('.test-summary-container .minimize-btn').addEventListener('click', () => {
+        toggleTestSummary();
     });
 
     window.toggleTestSummary = function () {
