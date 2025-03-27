@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerin Sam James | Portfolio with Chatbot</title>
+    <title>Jerin Sam James | Portfolio</title>
     <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -12,19 +12,6 @@
     <p class="loading" id="loading-message">Fetching test results...</p>
 
     <button class="toggle-btn" onclick="toggleDarkMode()">🌙</button>
-    <div id="me-bot" class="me-bot">
-        <button id="me-bot-btn" class="me-bot-btn">ME Bot</button>
-        <div id="me-bot-popup" class="me-bot-popup" style="display: none;">
-            <button id="me-bot-close" class="me-bot-close-btn">X</button>
-            <div class="chatbox" id="me-chatbox">
-                <div class="chat-message bot-message">I am Jerin, how are you?</div>
-            </div>
-            <div class="input-container">
-                <input type="text" id="user-input" placeholder="Ask a question...">
-                <button id="send-btn">Send</button>
-            </div>
-        </div>
-    </div>
 
     <div class="hero">
         <div class="test-summary-container">
@@ -188,7 +175,19 @@
         </div>
     </footer>
 
-    
+    <div id="me-bot" class="me-bot">
+        <button id="me-bot-btn" class="me-bot-btn">ME Bot</button>
+        <div id="me-bot-popup" class="me-bot-popup" style="display: none;">
+            <button id="me-bot-close" class="me-bot-close-btn">X</button>
+            <div class="chatbox" id="me-chatbox">
+                <div class="chat-message bot-message">I am Jerin, how are you?</div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ask a question...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
 
     <script src="src/script.js"></script>
 </body>
