@@ -198,8 +198,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const summaryContainer = document.querySelector('.test-summary-container');
         if (summaryContainer.classList.contains('minimized')) {
             summaryContainer.classList.remove('minimized');
+            summaryContainer.style.pointerEvents = 'auto'; // Enable interactions
         } else {
             summaryContainer.classList.add('minimized');
+            summaryContainer.style.pointerEvents = 'none'; // Disable interactions
         }
     }
 
@@ -208,8 +210,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const summaryContainer = document.querySelector('.test-summary-container');
         if (window.innerWidth < 768) {
             summaryContainer.classList.add('minimized');
+            summaryContainer.style.pointerEvents = 'none';
         } else {
             summaryContainer.classList.remove('minimized');
+            summaryContainer.style.pointerEvents = 'auto';
         }
     }
 
