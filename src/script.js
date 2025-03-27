@@ -60,8 +60,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('loading-message').textContent = "Test results unavailable.";
         });
 
-
-
     // Chatbot functionality
     let knowledgeBase = [];
     const chatbotStorageKey = 'chatbotKnowledgeBase';
@@ -87,21 +85,24 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotModal = document.getElementById('chatbot-modal');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatbox = document.getElementById('chatbox');
+    const chatbotToggle = document.getElementById('me-bot-btn');
+    const chatbotPopup = document.getElementById('me-bot-popup');
+    const chatbotClose = document.getElementById('me-bot-close');
+    const chatbox = document.getElementById('me-chatbox');
     const userInputField = document.getElementById('user-input');
     const sendButton = document.getElementById('send-btn');
 
+    // Open chatbot on button click
     chatbotToggle.addEventListener('click', () => {
-        chatbotModal.style.display = 'block';
+        chatbotPopup.style.display = 'block';
     });
 
+    // Close chatbot on close button click
     chatbotClose.addEventListener('click', () => {
-        chatbotModal.style.display = 'none';
+        chatbotPopup.style.display = 'none';
     });
 
+    // Send User Input
     sendButton.addEventListener('click', sendQuery);
     userInputField.addEventListener('keypress', (event) => {
         if (event.key === 'Enter') {

@@ -175,12 +175,17 @@
         </div>
     </footer>
 
-    <div id="chatbot-modal" style="display: none;">
-        <button id="chatbot-close">X</button>
-        <div class="chatbox" id="chatbox"></div>
-        <div class="input-container">
-            <input type="text" id="user-input" placeholder="Ask a question...">
-            <button id="send-btn">Send</button>
+    <div id="me-bot" class="me-bot">
+        <button id="me-bot-btn" class="me-bot-btn">ME Bot</button>
+        <div id="me-bot-popup" class="me-bot-popup" style="display: none;">
+            <button id="me-bot-close" class="me-bot-close-btn">X</button>
+            <div class="chatbox" id="me-chatbox">
+                <div class="chat-message bot-message">I am Jerin, how are you?</div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ask a question...">
+                <button id="send-btn">Send</button>
+            </div>
         </div>
     </div>
 

@@ -112,7 +112,6 @@ footer {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -330,24 +329,7 @@ footer {
     background-color: #0056b3;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .test-summary-container {
-        left: 5px;
-        min-width: 120px;
-        padding: 10px;
-    }
-
-    .test-summary div {
-        font-size: 14px;
-    }
-
-    .view-report-btn {
-        font-size: 12px;
-        padding: 8px;
-    }
-}
-
+/* Chatbot Styling */
 #chatbot-modal {
     position: fixed;
     top: 50%;
@@ -427,7 +409,16 @@ footer {
         margin-bottom: 10px;
     }
 
-    .input-container button {
-        margin-left: 0;
+    .contact {
+        margin-top: 20px;
+    }
+
+    .contact a {
+        font-size: 20px;
+    }
+
+    .test-summary-container {
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
     }
 }
