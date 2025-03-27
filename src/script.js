@@ -135,12 +135,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function getBestMatch(query) {
         let bestMatch = '';
         let highestMatchScore = 0;
+        let closestQuestion = '';
 
         knowledgeBase.forEach(item => {
             const matchScore = calculateMatchScore(query, item.keywords);
             if (matchScore > highestMatchScore) {
                 highestMatchScore = matchScore;
                 bestMatch = item.answer;
+                closestQuestion = item.question;
             }
         });
 
@@ -152,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 .slice(0, 5) // Limit to 5 questions
                 .join(', ');
             bestMatch += availableQuestions;
+        } else if (highestMatchScore > 1) {
+            bestMatch = `Did you mean: "${closestQuestion}"? ${bestMatch}`;
         }
 
         return bestMatch; // Ensure only one answer is returned
