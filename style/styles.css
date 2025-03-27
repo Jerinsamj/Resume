@@ -57,6 +57,24 @@ header {
     background: #ddd;
 }
 
+.invite-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: white;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+    border: 1px solid #007bff;
+}
+
+.invite-btn:hover {
+    background: #ddd;
+    color: #0056b3;
+}
+
 .section-title {
     text-align: center;
     font-size: 24px;
@@ -278,22 +296,39 @@ footer {
     padding: 15px;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex; /* Default to visible */
+    display: flex; /* Ensure it starts visible */
     flex-direction: column;
     gap: 10px;
     min-width: 150px;
     transition: transform 0.3s, opacity 0.3s;
-    pointer-events: auto; /* Enable interactions when not minimized */
+    pointer-events: auto; /* Enable interactions */
 }
 
+/* Test Summary minimized state */
 .test-summary-container.minimized {
-    transform: scale(0.5);
-    opacity: 0.5;
-    pointer-events: none; /* Disable interactions when minimized */
-    transition: transform 0.3s, opacity 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px; /* Adjust this as needed for your icon size */
 }
 
-.minimize-btn {
+.test-summary-container.minimized .test-summary {
+    display: none; /* Hide the test details when minimized */
+}
+
+.test-summary-container.minimized .close-btn {
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    background: green;
+    color: white;
+    width: 30px;
+    height: 30px;
+}
+
+.close-btn {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -301,15 +336,15 @@ footer {
     color: white;
     border: none;
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 30px;
     line-height: 20px;
     text-align: center;
 }
 
-.minimize-btn:hover {
+.close-btn:hover {
     background: #d32f2f;
 }
 
@@ -509,22 +544,38 @@ footer {
     }
 }
 
-.minimized-icon {
+.dialog {
+    display: none;
     position: fixed;
-    left: 10px;
     top: 50%;
-    transform: translateY(-50%);
-    background: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-size: 20px;
-    display: none; /* Hidden by default */
-    z-index: 1000;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.minimized-icon:hover {
-    background: #0056b3;
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    cursor: pointer;
+    padding: 10px 15px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-close {
+    background: red;
+    margin-left: 10px;
 }

@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Greeting message
     function getGreeting() {
+        const name = localStorage.getItem('userName'); // Retrieve the user's name from localStorage
         let hour = new Date().getHours();
-        if (hour < 12) return "Good Morning, I'm Jerin!";
-        if (hour < 18) return "Good Afternoon, I'm Jerin!";
-        return "Good Evening, I'm Jerin!";
+        if (hour < 12) return name ? `Good Morning, ${name}, I'm Jerin!` : "Good Morning, I'm Jerin!";
+        if (hour < 18) return name ? `Good Afternoon, ${name}, I'm Jerin!` : "Good Afternoon, I'm Jerin!";
+        return name ? `Good Evening, ${name}, I'm Jerin!` : "Good Evening, I'm Jerin!";
     }
     document.getElementById("greeting").textContent = getGreeting();
 
@@ -180,45 +181,78 @@ document.addEventListener('DOMContentLoaded', function () {
         return score;
     }
 
-    // Toggle test summary visibility
+    // Function to toggle the test summary container (minimize and expand)
     function toggleTestSummary() {
-        const summaryContainer = document.querySelector('.test-summary-container');
-        const minimizedIcon = document.getElementById('minimized-icon');
-        if (summaryContainer.classList.contains('minimized')) {
-            summaryContainer.classList.remove('minimized');
-            minimizedIcon.style.display = 'none';
-        } else {
-            summaryContainer.classList.add('minimized');
-            minimizedIcon.style.display = 'block';
-        }
-    }
+        const testSummaryContainer = document.querySelector('.test-summary-container');
+        const testSummary = document.querySelector('.test-summary');
+        const minimizeBtn = document.querySelector('.close-btn');
 
-    // Ensure proper initialization of test summary visibility
-    function initializeTestSummary() {
-        const summaryContainer = document.querySelector('.test-summary-container');
-        const minimizedIcon = document.getElementById('minimized-icon');
-        if (window.innerWidth < 768) {
-            summaryContainer.classList.add('minimized');
-            minimizedIcon.style.display = 'block';
+        if (testSummaryContainer.classList.contains('minimized')) {
+            // If minimized, expand the test summary container
+            testSummaryContainer.classList.remove('minimized');
+            minimizeBtn.textContent = '-'; // Reset minimize button to "-"
+            testSummaryContainer.style.display = 'flex'; // Restore display of the container
         } else {
-            summaryContainer.classList.remove('minimized');
-            minimizedIcon.style.display = 'none';
+            // If expanded, minimize the test summary container
+            testSummaryContainer.classList.add('minimized');
+            minimizeBtn.textContent = '+'; // Change the button to a plus
         }
     }
 
     // Minimize and maximize test summary
-    document.querySelector('.test-summary-container .minimize-btn').addEventListener('click', () => {
+    document.querySelector('.test-summary-container .close-btn').addEventListener('click', () => {
         toggleTestSummary();
     });
 
-    // Add event listener for minimized icon click
-    document.getElementById('minimized-icon').addEventListener('click', () => {
-        toggleTestSummary();
-    });
 
     window.toggleTestSummary = toggleTestSummary;
+
+    // Ensure proper initialization of test summary visibility
+    function initializeTestSummary() {
+        const summaryContainer = document.querySelector('.test-summary-container');
+        if (window.innerWidth < 768) {
+            summaryContainer.style.display = 'none';
+        } else {
+            summaryContainer.style.display = 'flex';
+        }
+    }
 
     // Call initializeTestSummary on window resize
     window.addEventListener('resize', initializeTestSummary);
     initializeTestSummary(); // Initial call
+
+    // Function to open the dialog
+    window.openDialog = function () {
+        document.getElementById('dialog').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    };
+
+    // Function to close the dialog
+    window.closeDialog = function () {
+        document.getElementById('dialog').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    };
+
+    // Function to send the email
+    window.sendEmail = function () {
+        var name = document.getElementById('name').value;
+        var company = document.getElementById('company').value || "N/A";
+        var date = document.getElementById('date').value || "N/A";
+        var time = document.getElementById('time').value || "N/A";
+
+        if (name) {
+            var subject = encodeURIComponent("Interview Availability");
+            var body = encodeURIComponent(`Hello,\n\nI am available for an interview on ${date} at ${time}.\n\nBest regards,\n${name}\n${company}`);
+            var mailtoLink = `mailto:hr@example.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+
+            // Store the user's name in localStorage
+            localStorage.setItem('userName', name);
+
+            closeDialog();
+            document.getElementById("greeting").textContent = getGreeting(); // Update the greeting
+        } else {
+            alert("Please enter your name.");
+        }
+    };
 });
