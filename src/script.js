@@ -135,14 +135,12 @@ document.addEventListener('DOMContentLoaded', function () {
     function getBestMatch(query) {
         let bestMatch = '';
         let highestMatchScore = 0;
-        let matchedQuestion = null; // To store the matched question
 
         knowledgeBase.forEach(item => {
             const matchScore = calculateMatchScore(query, item.keywords);
             if (matchScore > highestMatchScore) {
                 highestMatchScore = matchScore;
                 bestMatch = item.answer;
-                matchedQuestion = item.question;
             }
         });
 
@@ -150,15 +148,9 @@ document.addEventListener('DOMContentLoaded', function () {
             bestMatch = "I'm sorry, I don't understand your question. Here are some keywords you can try: ";
             const availableKeywords = knowledgeBase.flatMap(item => item.keywords).slice(0, 5).join(', ');
             bestMatch += availableKeywords;
-
-            chatbox.innerHTML += `<p><strong>Bot:</strong> ${bestMatch}</p>`;
-            chatbox.scrollTop = chatbox.scrollHeight;
-        } else {
-            // Show the matched question and answer.
-            chatbox.innerHTML += `<p><strong>Bot:</strong> (Matched Question: ${matchedQuestion})</p>`;
-            chatbox.innerHTML += `<p><strong>Bot:</strong> ${bestMatch}</p>`;
         }
-        return bestMatch;
+
+        return bestMatch; // Return only one answer
     }
 
     function calculateMatchScore(query, keywords) {
