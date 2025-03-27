@@ -183,11 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Toggle test summary visibility
     function toggleTestSummary() {
         const summaryContainer = document.querySelector('.test-summary-container');
-        if (summaryContainer.style.display === 'none') {
-            summaryContainer.style.display = 'flex'; // Show the container
-        } else {
-            summaryContainer.style.display = 'none'; // Hide the container
-        }
+        summaryContainer.style.display = summaryContainer.style.display === 'none' ? 'flex' : 'none';
     }
 
     // Ensure proper initialization of test summary visibility
