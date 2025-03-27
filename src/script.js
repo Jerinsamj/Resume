@@ -94,12 +94,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Open chatbot on button click
     chatbotToggle.addEventListener('click', () => {
-        chatbotPopup.style.display = 'block';
+        chatbotPopup.style.display = chatbotPopup.style.display === 'block' ? 'none' : 'block';
     });
 
     // Close chatbot on close button click
     chatbotClose.addEventListener('click', () => {
         chatbotPopup.style.display = 'none';
+    });
+
+    // Adjust popup position on scroll
+    window.addEventListener('scroll', () => {
+        const rect = chatbotToggle.getBoundingClientRect();
+        chatbotPopup.style.bottom = `${window.innerHeight - rect.bottom + 10}px`;
+        chatbotPopup.style.right = `${window.innerWidth - rect.right}px`;
     });
 
     // Send User Input
