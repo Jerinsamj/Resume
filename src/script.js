@@ -144,13 +144,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        if (highestMatchScore < 1) { // Changed from 0 to 1
+        if (highestMatchScore < 1) {
             bestMatch = "I'm sorry, I don't understand your question. Here are some keywords you can try: ";
             const availableKeywords = knowledgeBase.flatMap(item => item.keywords).slice(0, 5).join(', ');
             bestMatch += availableKeywords;
         }
 
-        return bestMatch; // Return only one answer
+        return bestMatch; // Ensure only one answer is returned
     }
 
     function calculateMatchScore(query, keywords) {
