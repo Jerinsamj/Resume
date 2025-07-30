@@ -3,11 +3,11 @@
 import React, { useCallback } from "react";
 import Particles from "react-tsparticles";
 import type { Engine } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
+import { loadFull } from "tsparticles";
 
 const Snowfall = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
-    await loadSlim(engine);
+    await loadFull(engine);
   }, []);
 
   const options = {
@@ -19,7 +19,7 @@ const Snowfall = () => {
     },
     fullScreen: {
       enable: true,
-      zIndex: -1,
+      zIndex: 50,
     },
     interactivity: {
       events: {
@@ -33,7 +33,7 @@ const Snowfall = () => {
     },
     particles: {
       number: {
-        value: 100,
+        value: 50,
         density: {
           enable: true,
         },
@@ -42,10 +42,15 @@ const Snowfall = () => {
         value: "#ffffff",
       },
       shape: {
-        type: "circle",
+        type: "image",
+        image: {
+            src: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiczFImeudRTKvhNFjmxonWc2vEXmmEy-epU3loqjw_7NRPmAzldq73v4YPHoPYFokPKSuRgecSj10hZKx1cX0k7UKtWtzkbCoGUje4FJG6ytInLi3FhilziyEXw4YnjOPNKMkAqLsc1HdP1UHq-26RWxM8cYuVf94srre2IDhwX_tusxN-iXLfoe8h6wTe/s500/snowflake.png',
+            width: 500,
+            height: 500,
+        }
       },
       opacity: {
-        value: { min: 0.1, max: 0.5 },
+        value: { min: 0.3, max: 0.8 },
         animation: {
           enable: true,
           speed: 1,
@@ -53,25 +58,37 @@ const Snowfall = () => {
         },
       },
       size: {
-        value: { min: 1, max: 5 },
+        value: { min: 5, max: 15 },
       },
       move: {
         enable: true,
-        speed: { min: 0.5, max: 2 },
+        speed: { min: 1, max: 3 },
         direction: "bottom",
-        straight: true,
+        straight: false,
+        outModes: {
+            default: "out",
+        },
       },
+      rotate: {
+        value: {
+            min: 0,
+            max: 360,
+        },
+        direction: "random",
+        animation: {
+            enable: true,
+            speed: 5,
+        },
+      }
     },
   };
 
   return (
-    <div className="fixed inset-0 -z-10">
-      <Particles
+    <Particles
         id="tsparticles"
         init={particlesInit}
         options={options as any}
       />
-    </div>
   );
 };
 
