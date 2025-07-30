@@ -1,9 +1,10 @@
-import { Github, Linkedin, Mail, MapPin, Smartphone, Code, Server, Database, Cloud, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Smartphone, Code, Server, Database, Cloud, Award, School } from 'lucide-react';
 
 export const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Education', href: '#education' },
   { name: 'Certifications', href: '#certifications' },
   { name: 'Portfolio', href: '#portfolio' },
   { name: 'Contact', href: '#contact' },
@@ -25,9 +26,9 @@ export const skills = [
     category: 'Frontend',
     icon: Code,
     technologies: [
-      { name: 'React & Next.js', level: 95 },
-      { name: 'JavaScript (ES6+)', level: 90 },
-      { name: 'HTML5 & CSS3', level: 95 },
+      { name: 'React & React Native', level: 95 },
+      { name: 'HTML, CSS, JS', level: 90 },
+      { name: 'UX/UI (Adobe XD, Figma)', level: 85 },
       { name: 'Tailwind CSS', level: 98 },
     ],
   },
@@ -36,8 +37,8 @@ export const skills = [
     icon: Server,
     technologies: [
       { name: 'Node.js & Express', level: 85 },
-      { name: 'Java', level: 80 },
-      { name: 'C#', level: 78 },
+      { name: 'Java & PHP', level: 80 },
+      { name: '.NET & Apache Server', level: 78 },
       { name: 'Python', level: 88 },
     ],
   },
@@ -45,19 +46,20 @@ export const skills = [
     category: 'Databases',
     icon: Database,
     technologies: [
-      { name: 'PostgreSQL', level: 85 },
-      { name: 'MongoDB', level: 75 },
+      { name: 'PostgreSQL & MongoDB', level: 85 },
       { name: 'Firebase', level: 90 },
+      { name: 'SQL Server Reporting', level: 82 },
+      { name: 'DAX & RLS', level: 80 },
     ],
   },
   {
     category: 'Cloud & Platform',
     icon: Cloud,
     technologies: [
-      { name: 'Azure', level: 88 },
-      { name: 'Power Platform', level: 92 },
-      { name: 'SharePoint', level: 85 },
-      { name: 'Google Cloud Platform', level: 85 },
+      { name: 'Azure & GCP', level: 88 },
+      { name: 'MS Power Platform', level: 92 },
+      { name: 'Microsoft Fabric', level: 85 },
+      { name: 'ArcGIS', level: 87 },
     ],
   },
 ];
@@ -70,6 +72,14 @@ export const experience = [
         description: 'Developed and automated internal systems using Microsoft Power Platform, Power Automate, SharePoint, Power BI, and Planner. Built a custom ticketing system for streamlined service request management with real-time notifications and automated workflows. Created a responsive internal app enabling secure, cross-platform data uploads and automated task assignments via Planner and Outlook.',
     },
 ];
+
+export const education = [
+    {
+        degree: 'Diploma in Software System Developer: Computer Science',
+        institution: 'Mohawk College of Applied Arts and Technology, Hamilton, ON',
+        period: '01/2018 - 12/2023',
+    }
+]
 
 export const certifications = [
     { name: 'PL-300 Microsoft Power BI Data Analyst', icon: Award },
