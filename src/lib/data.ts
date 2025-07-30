@@ -1,9 +1,10 @@
-import { Github, Linkedin, Mail, MapPin, Smartphone, Code, Server, Database, Cloud } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Smartphone, Code, Server, Database, Cloud, Award } from 'lucide-react';
 
 export const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Experience', href: '#experience' },
+  { name: 'Certifications', href: '#certifications' },
   { name: 'Portfolio', href: '#portfolio' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -14,9 +15,9 @@ export const socialLinks = [
 ];
 
 export const contactInfo = [
-    { label: 'Email', value: 'jerinsam.j@email.com', icon: Mail },
-    { label: 'Phone', value: '+1 (555) 123-4567', icon: Smartphone },
-    { label: 'Location', value: 'San Francisco, CA', icon: MapPin },
+    { label: 'Email', value: 'jerinsamjames1998@gmail.com', icon: Mail },
+    { label: 'Phone', value: '3658886814', icon: Smartphone },
+    { label: 'Location', value: 'Canada', icon: MapPin },
 ]
 
 export const skills = [
@@ -36,7 +37,8 @@ export const skills = [
     technologies: [
       { name: 'Node.js & Express', level: 85 },
       { name: 'Java', level: 80 },
-      { name: 'Spring Boot', level: 75 },
+      { name: 'C#', level: 78 },
+      { name: 'Python', level: 88 },
     ],
   },
   {
@@ -49,30 +51,42 @@ export const skills = [
     ],
   },
   {
-    category: 'DevOps & Cloud',
+    category: 'Cloud & Platform',
     icon: Cloud,
     technologies: [
-      { name: 'Docker', level: 80 },
+      { name: 'Azure', level: 88 },
+      { name: 'Power Platform', level: 92 },
+      { name: 'SharePoint', level: 85 },
       { name: 'Google Cloud Platform', level: 85 },
-      { name: 'Vercel', level: 95 },
     ],
   },
 ];
 
 export const experience = [
     {
-        role: 'Software Engineer',
-        company: 'Google',
-        period: '2021 - Present',
-        description: 'Developed and maintained key features for a large-scale enterprise application, improving performance and user engagement. Collaborated in an Agile environment to deliver high-quality code.',
+        role: 'Information System Administrator',
+        company: 'CyberTech',
+        period: 'Recent',
+        description: 'Managed Azure Cloud infrastructure, including Entra ID, governance, network zoning, and virtual machines to ensure secure and scalable operations. Implemented workflow automation and data visualization using Microsoft tools.',
     },
     {
-        role: 'Software Engineer Intern',
-        company: 'SAP',
-        period: '2020 - 2021',
-        description: 'Worked on the design and development of a new module for an existing HR management solution. Gained experience in full-stack development and enterprise software architecture.',
+        role: 'Project Lead',
+        company: 'City of Hamilton',
+        period: 'Past',
+        description: 'Led key projects such as a custom ticketing system, internal data access app, and performance dashboards. Utilized Power Automate, SharePoint, Power BI, and custom code (C#, JS, HTML/CSS) to streamline workflows.',
     },
 ];
+
+export const certifications = [
+    {
+        name: 'PL-300 Microsoft Power BI Data Analyst',
+        icon: Award,
+    },
+    {
+        name: 'DP-600 Microsoft Fabric Analytics Engineer',
+        icon: Award,
+    }
+]
 
 export const portfolioProjects = [
     {

@@ -1,3 +1,4 @@
+import CertificationsSection from "@/components/certifications-section";
 import ContactSection from "@/components/contact-section";
 import ExperienceSection from "@/components/experience-section";
 import Footer from "@/components/footer";
@@ -17,6 +18,7 @@ export default function Home() {
         <SummarySection />
         <SkillsSection />
         <ExperienceSection />
+        <CertificationsSection />
         <PortfolioSection />
         <TestimonialsSection />
         <ContactSection />

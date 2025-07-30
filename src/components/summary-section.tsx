@@ -14,13 +14,13 @@ export default function SummarySection() {
         />
         <div className="space-y-4">
           <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">
-            About Me
+            Professional Summary
           </h2>
           <p className="text-muted-foreground md:text-lg">
-            I am a results-driven Software Engineer with a passion for developing innovative software solutions. With a solid foundation in computer science principles and a keen eye for detail, I specialize in building and scaling web applications using modern technologies.
+            Efficient and diligent with the ability to handle multiple projects simultaneously with a high degree of accuracy. I love to be creative while being proficient and monitoring software performance tests. I have excellent understanding of development principles and practices for diverse operating systems.
           </p>
           <p className="text-muted-foreground md:text-lg">
-            My goal is to leverage my skills to create user-centric products that are both functional and delightful to use. I thrive in collaborative environments and am always eager to learn and adapt to new challenges.
+            With a strong background in software development, automation, and compliance, I bring hands-on experience delivering scalable solutions using Python, React, JavaScript, and Microsoft Power Platform.
           </p>
         </div>
       </div>
