@@ -1,57 +1,58 @@
-import Link from "next/link";
+"use client";
+
+import { useState, useEffect } from "react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { socialLinks } from "@/lib/data";
-import { Download, FileText, MoveRight } from "lucide-react";
+import InterviewDialog from "./interview-dialog";
+
+function getGreeting(name: string | null) {
+  const hour = new Date().getHours();
+  let timeOfDay;
+  if (hour < 12) timeOfDay = "Good Morning";
+  else if (hour < 18) timeOfDay = "Good Afternoon";
+  else timeOfDay = "Good Evening";
+
+  return name ? `${timeOfDay}, ${name}, I'm Jerin!` : `${timeOfDay}, I'm Jerin!`;
+}
 
 export default function HeroSection() {
+  const [greeting, setGreeting] = useState("Hello, I'm Jerin!");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const resumeUrl = "https://jerinsamj.github.io/Resume/";
+
+  const updateGreeting = () => {
+    const storedName = localStorage.getItem("userName");
+    setGreeting(getGreeting(storedName));
+  };
+  
+  useEffect(() => {
+    updateGreeting();
+  }, []);
+
 
   return (
     <section className="w-full py-24 md:py-32 lg:py-40 xl:py-48">
       <div className="container px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-            Jerin Sam J
+            {greeting}
           </h1>
-          <h2 className="font-headline mt-2 text-2xl font-medium tracking-tight sm:text-3xl md:text-4xl">
-            Creative Software Engineer
-          </h2>
           <p className="mx-auto mt-4 max-w-[700px] text-lg text-muted-foreground md:text-xl">
-            I build elegant and efficient software solutions that solve real-world problems.
+            Experienced IT professional specializing in software development, cloud technologies, and automation.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href="#contact">
-              <Button size="lg">
-                Contact Me <MoveRight className="ml-2" />
-              </Button>
-            </Link>
-            <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="secondary">
-                View Full Resume <FileText className="ml-2" />
-              </Button>
-            </Link>
             <a href={resumeUrl} download>
               <Button size="lg" variant="outline">
-                Download PDF <Download className="ml-2" />
+                Download Resume <Download className="ml-2" />
               </Button>
             </a>
-          </div>
-          <div className="mt-8 flex justify-center gap-6">
-            {socialLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.name}
-                className="text-muted-foreground transition-colors hover:text-primary"
-              >
-                <link.icon className="h-7 w-7" />
-              </Link>
-            ))}
+            <Button size="lg" onClick={() => setIsDialogOpen(true)}>
+              Invite for Interview
+            </Button>
           </div>
         </div>
       </div>
+      <InterviewDialog isOpen={isDialogOpen} onOpenChange={setIsDialogOpen} onNameSubmitted={updateGreeting} />
     </section>
   );
 }

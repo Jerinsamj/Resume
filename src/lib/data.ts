@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Smartphone, Code, Server, Database, Cloud, Award, School } from 'lucide-react';
+import { Github, Mail, Smartphone, Code, Server, Database, Cloud, Award } from 'lucide-react';
 
 export const navLinks = [
   { name: 'About', href: '#about' },
@@ -12,13 +12,11 @@ export const navLinks = [
 
 export const socialLinks = [
     { name: 'GitHub', href: 'https://github.com/jerinsamj', icon: Github },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/jerinsam', icon: Linkedin },
 ];
 
 export const contactInfo = [
     { label: 'Email', value: 'jerinsamjames1998@gmail.com', icon: Mail },
     { label: 'Phone', value: '3658886814', icon: Smartphone },
-    { label: 'Location', value: 'Canada', icon: MapPin },
 ]
 
 export const skills = [
@@ -26,40 +24,50 @@ export const skills = [
     category: 'Frontend',
     icon: Code,
     technologies: [
-      { name: 'React & React Native', level: 95 },
-      { name: 'HTML, CSS, JS', level: 90 },
-      { name: 'UX/UI (Adobe XD, Figma)', level: 85 },
-      { name: 'Tailwind CSS', level: 98 },
+      { name: 'React & React Native' },
+      { name: 'HTML5' },
+      { name: 'CSS3' },
+      { name: 'JavaScript (ES6+)' },
+      { name: 'Tailwind CSS' },
+      { name: 'UX/UI (Figma, Adobe XD)' },
     ],
   },
   {
     category: 'Backend',
     icon: Server,
     technologies: [
-      { name: 'Node.js & Express', level: 85 },
-      { name: 'Java & PHP', level: 80 },
-      { name: '.NET & Apache Server', level: 78 },
-      { name: 'Python', level: 88 },
+      { name: 'Node.js & Express' },
+      { name: 'Python (Flask)' },
+      { name: 'Java' },
+      { name: 'PHP' },
+      { name: 'C#'},
+      { name: '.NET' },
     ],
   },
   {
     category: 'Databases',
     icon: Database,
     technologies: [
-      { name: 'PostgreSQL & MongoDB', level: 85 },
-      { name: 'Firebase', level: 90 },
-      { name: 'SQL Server Reporting', level: 82 },
-      { name: 'DAX & RLS', level: 80 },
+      { name: 'PostgreSQL' },
+      { name: 'MongoDB' },
+      { name: 'Firebase' },
+      { name: 'Microsoft SQL Server' },
+      { name: 'SQL' },
+      { name: 'DAX' },
     ],
   },
   {
-    category: 'Cloud & Platform',
+    category: 'Cloud & DevOps',
     icon: Cloud,
     technologies: [
-      { name: 'Azure & GCP', level: 88 },
-      { name: 'MS Power Platform', level: 92 },
-      { name: 'Microsoft Fabric', level: 85 },
-      { name: 'ArcGIS', level: 87 },
+      { name: 'Azure' },
+      { name: 'Google Cloud Platform (GCP)' },
+      { name: 'AWS' },
+      { name: 'Microsoft Power Platform' },
+      { name: 'Microsoft Fabric' },
+      { name: 'SharePoint' },
+      { name: 'CI/CD' },
+      { name: 'Docker' },
     ],
   },
 ];
@@ -141,29 +149,5 @@ export const portfolioProjects = [
         hint: 'water quality',
         githubUrl: 'https://github.com/jerinsamj/Water-Potability-Prediction',
         liveUrl: '#',
-    },
-];
-
-export const testimonials = [
-    {
-        quote: "Jerin is a very dedicated and hard-working person. He is a great team player and always willing to help others. I wish him all the best for his future endeavors.",
-        author: 'Aysha S',
-        title: 'Project Collaborator',
-        avatar: 'https://placehold.co/100x100.png',
-        hint: 'woman portrait',
-    },
-    {
-        quote: "Jerin is a person who is ready to take up any challenge. He is a great learner and has a great potential to grow. I wish him all the best for his future.",
-        author: 'Aleena T',
-        title: 'Project Collaborator',
-        avatar: 'https://placehold.co/100x100.png',
-        hint: 'professional woman',
-    },
-    {
-        quote: "His ability to tackle complex problems with elegant solutions is impressive. Jerin is a valuable asset to any engineering team.",
-        author: 'Emily White',
-        title: 'CTO, Creative Web Agency',
-        avatar: 'https://placehold.co/100x100.png',
-        hint: 'professional headshot',
     },
 ];

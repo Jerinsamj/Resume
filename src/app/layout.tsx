@@ -5,8 +5,8 @@ import Snowfall from '@/components/snowfall';
 import StaticCircles from '@/components/static-circles';
 
 export const metadata: Metadata = {
-  title: 'Jerin Sam J - Software Engineer',
-  description: 'Personal resume and portfolio website for Jerin Sam J, a passionate software engineer.',
+  title: 'Jerin Sam James - Software Engineer',
+  description: 'Personal resume and portfolio website for Jerin Sam James, a passionate software engineer.',
 };
 
 export default function RootLayout({

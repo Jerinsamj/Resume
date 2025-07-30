@@ -8,7 +8,6 @@ import HeroSection from "@/components/hero-section";
 import PortfolioSection from "@/components/portfolio-section";
 import SkillsSection from "@/components/skills-section";
 import SummarySection from "@/components/summary-section";
-import TestimonialsSection from "@/components/testimonials-section";
 
 export default function Home() {
   return (
@@ -22,7 +21,6 @@ export default function Home() {
         <EducationSection />
         <CertificationsSection />
         <PortfolioSection />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />

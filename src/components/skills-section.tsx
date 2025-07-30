@@ -1,5 +1,5 @@
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { skills } from "@/lib/data";
 
 export default function SkillsSection() {
@@ -24,15 +24,11 @@ export default function SkillsSection() {
                     <span className="font-headline text-2xl">{skillCategory.category}</span>
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="flex flex-wrap gap-2">
                   {skillCategory.technologies.map((tech) => (
-                    <div key={tech.name} className="space-y-1">
-                      <div className="flex justify-between">
-                        <p className="font-medium">{tech.name}</p>
-                        <p className="text-sm text-muted-foreground">{tech.level}%</p>
-                      </div>
-                      <Progress value={tech.level} aria-label={`${tech.name} proficiency`} />
-                    </div>
+                    <Badge key={tech.name} variant="secondary" className="text-base">
+                      {tech.name}
+                    </Badge>
                   ))}
                 </CardContent>
               </Card>
