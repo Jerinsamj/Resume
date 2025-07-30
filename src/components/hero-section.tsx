@@ -18,7 +18,7 @@ function getGreeting(name: string | null) {
 export default function HeroSection() {
   const [greeting, setGreeting] = useState("Hello, I'm Jerin!");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const resumeUrl = "https://jerinsamj.github.io/Resume/";
+  const resumeUrl = "https://drive.google.com/file/d/1A3xWEQQzc0HDBDUonSP05uvQdtZiWx4F/view?usp=sharing";
 
   const updateGreeting = () => {
     const storedName = localStorage.getItem("userName");

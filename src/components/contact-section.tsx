@@ -15,7 +15,7 @@ export default function ContactSection() {
               {contactInfo.map((info) => (
                  <a
                     key={info.label}
-                    href={info.label === 'Email' ? `mailto:${info.value}` : '#'}
+                    href={info.label === 'Email' ? `mailto:${info.value}` : `tel:${info.value}`}
                     className="text-primary hover:text-primary/80"
                     aria-label={info.label}
                   >
