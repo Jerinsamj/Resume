@@ -12,7 +12,6 @@ export const navLinks = [
 
 export const socialLinks = [
     { name: 'GitHub', href: 'https://github.com/Jerinsamj/Projects', icon: Github },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/jerinsam-james-b615531a0/', icon: Linkedin },
 ];
 
 export const contactInfo = [
