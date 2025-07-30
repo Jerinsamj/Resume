@@ -64,29 +64,32 @@ export const skills = [
 
 export const experience = [
     {
-        role: 'Information System Administrator',
-        company: 'CyberTech',
-        period: 'Recent',
-        description: 'Managed Azure Cloud infrastructure, including Entra ID, governance, network zoning, and virtual machines to ensure secure and scalable operations. Implemented workflow automation and data visualization using Microsoft tools.',
-    },
-    {
-        role: 'Project Lead',
-        company: 'City of Hamilton',
-        period: 'Past',
-        description: 'Led key projects such as a custom ticketing system, internal data access app, and performance dashboards. Utilized Power Automate, SharePoint, Power BI, and custom code (C#, JS, HTML/CSS) to streamline workflows.',
+        role: 'Environmental Quality and Compliance Technologist',
+        company: 'City of Hamilton, Public Works (Full-time)',
+        period: '05/2023 - 10/2023',
+        description: 'Developed and automated internal systems using Microsoft Power Platform, Power Automate, SharePoint, Power BI, and Planner. Built a custom ticketing system for streamlined service request management with real-time notifications and automated workflows. Created a responsive internal app enabling secure, cross-platform data uploads and automated task assignments via Planner and Outlook.',
     },
 ];
 
 export const certifications = [
-    {
-        name: 'PL-300 Microsoft Power BI Data Analyst',
-        icon: Award,
-    },
-    {
-        name: 'DP-600 Microsoft Fabric Analytics Engineer',
-        icon: Award,
-    }
-]
+    { name: 'PL-300 Microsoft Power BI Data Analyst', icon: Award },
+    { name: 'DP-100 Microsoft Certified: Azure Data Scientist', icon: Award },
+    { name: 'Computer Forensics', icon: Award },
+    { name: 'Oracle Cloud Infrastructure Multicloud Architect Associate', icon: Award },
+    { name: 'CISCO Cybersecurity Operations Specialization', icon: Award },
+    { name: 'Google UX/UI Designing Professional Certificate', icon: Award },
+    { name: 'Microsoft Azure Administrator', icon: Award },
+    { name: 'SAP Technology Consultant', icon: Award },
+    { name: 'Cybersecurity Professional Certificate ISC2', icon: Award },
+    { name: 'DP-600 Microsoft Fabric Analytics Engineer', icon: Award },
+    { name: 'DP-700 Microsoft Certified: Fabric Data Engineer', icon: Award },
+    { name: 'AWS Cloud Certificate', icon: Award },
+    { name: 'Adobe Graphic Designer Certificate', icon: Award },
+    { name: 'Microsoft Azure Cloud Certificate', icon: Award },
+    { name: 'Microsoft Project Management Certificate', icon: Award },
+    { name: 'Geographic Information Systems (GIS) Specialization', icon: Award },
+    { name: 'Front-End and Back-End Developer', icon: Award },
+];
 
 export const portfolioProjects = [
     {
