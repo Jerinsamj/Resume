@@ -1,7 +1,11 @@
 import type {NextConfig} from 'next';
 
+const repoName = 'Resume';
+
 const nextConfig: NextConfig = {
   output: 'export',
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`,
   /* config options here */
   typescript: {
     ignoreBuildErrors: true,
