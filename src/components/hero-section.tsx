@@ -30,11 +30,11 @@ export default function HeroSection() {
                 View Full Resume <FileText className="ml-2" />
               </Button>
             </Link>
-            <Link href={resumeUrl} target="_blank" rel="noopener noreferrer" download>
+            <a href={resumeUrl} download>
               <Button size="lg" variant="outline">
                 Download PDF <Download className="ml-2" />
               </Button>
-            </Link>
+            </a>
           </div>
           <div className="mt-8 flex justify-center gap-6">
             {socialLinks.map((link) => (
