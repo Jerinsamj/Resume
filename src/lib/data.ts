@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Smartphone, Code, Server, Database, Cloud, Award, ShieldCheck, BarChart } from 'lucide-react';
+import { Github, Linkedin, Mail, Smartphone, Code, Server, Database, Cloud, Award, ShieldCheck, BarChart, ListChecks } from 'lucide-react';
 
 export const navLinks = [
   { name: 'About', href: '#about' },
@@ -12,6 +12,7 @@ export const navLinks = [
 
 export const socialLinks = [
     { name: 'GitHub', href: 'https://github.com/Jerinsamj/Projects', icon: Github },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/jerinsam-james-b615531a0/', icon: Linkedin },
 ];
 
 export const contactInfo = [
@@ -39,6 +40,7 @@ export const skills = [
       { name: '.NET & Apache Server', level: 100 },
       { name: 'Python', level: 100 },
       { name: 'C#', level: 100 },
+      { name: 'API Development', level: 100 },
     ],
   },
   {
@@ -57,6 +59,7 @@ export const skills = [
     icon: Cloud,
     technologies: [
       { name: 'Azure & GCP', level: 100 },
+      { name: 'AWS & Oracle Cloud', level: 100 },
       { name: 'MS Power Platform', level: 100 },
       { name: 'Microsoft Fabric', level: 100 },
       { name: 'ArcGIS', level: 100 },
@@ -79,6 +82,14 @@ export const skills = [
         { name: 'Cybersecurity (CISCO, ISC2)', level: 100 },
         { name: 'Computer Forensics', level: 100 },
         { name: 'Network Security', level: 100 },
+    ],
+  },
+  {
+    category: 'Project Management',
+    icon: ListChecks,
+    technologies: [
+        { name: 'Agile & Scrum', level: 100 },
+        { name: 'Project Lifecycle Management', level: 100 },
     ],
   }
 ];
