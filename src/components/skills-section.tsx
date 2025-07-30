@@ -15,7 +15,7 @@ export default function SkillsSection() {
               My expertise across the full stack, from frontend design to backend infrastructure.
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {skills.map((skillCategory) => (
               <Card key={skillCategory.category}>
                 <CardHeader>

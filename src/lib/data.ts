@@ -1,4 +1,4 @@
-import { Github, Mail, Smartphone, Code, Server, Database, Cloud, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, Smartphone, Code, Server, Database, Cloud, Award, ShieldCheck, BarChart } from 'lucide-react';
 
 export const navLinks = [
   { name: 'About', href: '#about' },
@@ -11,7 +11,7 @@ export const navLinks = [
 ];
 
 export const socialLinks = [
-    { name: 'GitHub', href: 'https://github.com/jerinsamj', icon: Github },
+    { name: 'GitHub', href: 'https://github.com/Jerinsamj/Projects', icon: Github },
 ];
 
 export const contactInfo = [
@@ -38,6 +38,7 @@ export const skills = [
       { name: 'Java & PHP', level: 100 },
       { name: '.NET & Apache Server', level: 100 },
       { name: 'Python', level: 100 },
+      { name: 'C#', level: 100 },
     ],
   },
   {
@@ -62,6 +63,24 @@ export const skills = [
       { name: 'Power Automate', level: 100 },
     ],
   },
+  {
+    category: 'Business Intelligence',
+    icon: BarChart,
+    technologies: [
+        { name: 'Power BI', level: 100 },
+        { name: 'Data Visualization', level: 100 },
+        { name: 'SAP', level: 100 },
+    ],
+  },
+  {
+    category: 'Security & Forensics',
+    icon: ShieldCheck,
+    technologies: [
+        { name: 'Cybersecurity (CISCO, ISC2)', level: 100 },
+        { name: 'Computer Forensics', level: 100 },
+        { name: 'Network Security', level: 100 },
+    ],
+  }
 ];
 
 export const experience = [
@@ -118,7 +137,6 @@ export const portfolioProjects = [
         name: 'Old Portfolio',
         image: 'https://placehold.co/600x400.png',
         hint: 'retro portfolio',
-        githubUrl: '#',
         liveUrl: 'https://jerinsamj.github.io/Resume/oldportfolio',
     },
 ];
