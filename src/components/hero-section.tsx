@@ -41,7 +41,7 @@ export default function HeroSection() {
             Experienced IT professional specializing in software development, cloud technologies, and automation.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a href={resumeUrl} download>
+            <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline">
                 Download Resume <Download className="ml-2" />
               </Button>

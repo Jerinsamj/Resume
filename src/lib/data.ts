@@ -16,7 +16,7 @@ export const socialLinks = [
 
 export const contactInfo = [
     { label: 'Email', value: 'jerinsamjames1998@gmail.com', icon: Mail },
-    { label: 'Phone', value: '3658886814', icon: Smartphone },
+    { label: 'Phone', value: '365-888-6814', icon: Smartphone },
 ]
 
 export const skills = [
@@ -24,40 +24,42 @@ export const skills = [
     category: 'Frontend',
     icon: Code,
     technologies: [
-      { name: 'React & React Native', level: 95 },
-      { name: 'HTML, CSS, JS', level: 90 },
-      { name: 'UX/UI (Adobe XD, Figma)', level: 85 },
-      { name: 'Tailwind CSS', level: 98 },
+      { name: 'React & React Native', level: 100 },
+      { name: 'HTML, CSS, JS', level: 100 },
+      { name: 'UX/UI (Adobe XD, Figma)', level: 100 },
+      { name: 'Tailwind CSS', level: 100 },
     ],
   },
   {
     category: 'Backend',
     icon: Server,
     technologies: [
-      { name: 'Node.js & Express', level: 85 },
-      { name: 'Java & PHP', level: 80 },
-      { name: '.NET & Apache Server', level: 78 },
-      { name: 'Python', level: 88 },
+      { name: 'Node.js & Express', level: 100 },
+      { name: 'Java & PHP', level: 100 },
+      { name: '.NET & Apache Server', level: 100 },
+      { name: 'Python', level: 100 },
     ],
   },
   {
     category: 'Databases',
     icon: Database,
     technologies: [
-      { name: 'PostgreSQL & MongoDB', level: 85 },
-      { name: 'Firebase', level: 90 },
-      { name: 'SQL Server Reporting', level: 82 },
-      { name: 'DAX & RLS', level: 80 },
+      { name: 'PostgreSQL & MongoDB', level: 100 },
+      { name: 'Firebase', level: 100 },
+      { name: 'SQL Server Reporting', level: 100 },
+      { name: 'DAX & RLS', level: 100 },
+      { name: 'SharePoint', level: 100 },
     ],
   },
   {
     category: 'Cloud & Platform',
     icon: Cloud,
     technologies: [
-      { name: 'Azure & GCP', level: 88 },
-      { name: 'MS Power Platform', level: 92 },
-      { name: 'Microsoft Fabric', level: 85 },
-      { name: 'ArcGIS', level: 87 },
+      { name: 'Azure & GCP', level: 100 },
+      { name: 'MS Power Platform', level: 100 },
+      { name: 'Microsoft Fabric', level: 100 },
+      { name: 'ArcGIS', level: 100 },
+      { name: 'Power Automate', level: 100 },
     ],
   },
 ];
@@ -113,38 +115,10 @@ export const certifications = [
 
 export const portfolioProjects = [
     {
-        name: 'Portfolio Website',
-        image: 'https://placehold.co/600x400.png',
-        hint: 'personal website',
-        githubUrl: 'https://github.com/jerinsamj/jerinsamj.github.io',
-        liveUrl: 'https://jerinsamj.github.io/Resume/',
-    },
-    {
-        name: 'Automated Timetable Generator',
-        image: 'https://placehold.co/600x400.png',
-        hint: 'schedule planner',
-        githubUrl: 'https://github.com/jerinsamj/automated-timetable-generator',
-        liveUrl: '#',
-    },
-    {
-        name: 'Stock Price Prediction',
-        image: 'https://placehold.co/600x400.png',
-        hint: 'finance forecast',
-        githubUrl: 'https://github.com/jerinsamj/Stock-Price-Prediction',
-        liveUrl: '#',
-    },
-    {
-        name: 'Water Potability Prediction',
-        image: 'https://placehold.co/600x400.png',
-        hint: 'water quality',
-        githubUrl: 'https://github.com/jerinsamj/Water-Potability-Prediction',
-        liveUrl: '#',
-    },
-    {
         name: 'Old Portfolio',
         image: 'https://placehold.co/600x400.png',
         hint: 'retro portfolio',
-        githubUrl: 'https://github.com/jerinsamj/Resume/tree/main/oldportfolio',
+        githubUrl: '#',
         liveUrl: 'https://jerinsamj.github.io/Resume/oldportfolio',
     },
 ];

@@ -33,11 +33,6 @@ export default function PortfolioSection() {
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2">{project.name}</h3>
                     <div className="flex justify-center gap-4 mt-4">
-                      <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline">
-                          <Github className="mr-2 h-4 w-4" /> GitHub
-                        </Button>
-                      </Link>
                        {project.liveUrl !== '#' && (
                         <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                           <Button>Live Demo</Button>
