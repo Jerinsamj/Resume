@@ -6,7 +6,7 @@ export default function SummarySection() {
       <div className="container grid items-center gap-8 px-4 md:grid-cols-2 md:px-6">
         <Image
           src="https://placehold.co/600x600.png"
-          alt="Jerin Sam Portrait"
+          alt="Jerin Sam J Portrait"
           width={600}
           height={600}
           className="mx-auto aspect-square overflow-hidden rounded-full object-cover"

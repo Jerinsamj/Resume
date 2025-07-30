@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div className="container px-4 md:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="font-headline text-4xl font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-            Jerin Sam
+            Jerin Sam J
           </h1>
           <h2 className="font-headline mt-2 text-2xl font-medium tracking-tight sm:text-3xl md:text-4xl">
             Creative Software Engineer

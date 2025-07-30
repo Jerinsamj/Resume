@@ -14,7 +14,7 @@ export const socialLinks = [
 ];
 
 export const contactInfo = [
-    { label: 'Email', value: 'jerin.sam@email.com', icon: Mail },
+    { label: 'Email', value: 'jerinsam.j@email.com', icon: Mail },
     { label: 'Phone', value: '+1 (555) 123-4567', icon: Smartphone },
     { label: 'Location', value: 'San Francisco, CA', icon: MapPin },
 ]
@@ -25,7 +25,7 @@ export const skills = [
     icon: Code,
     technologies: [
       { name: 'React & Next.js', level: 95 },
-      { name: 'TypeScript', level: 90 },
+      { name: 'JavaScript (ES6+)', level: 90 },
       { name: 'HTML5 & CSS3', level: 95 },
       { name: 'Tailwind CSS', level: 98 },
     ],
@@ -35,8 +35,8 @@ export const skills = [
     icon: Server,
     technologies: [
       { name: 'Node.js & Express', level: 85 },
-      { name: 'Python & Django', level: 70 },
-      { name: 'GraphQL', level: 80 },
+      { name: 'Java', level: 80 },
+      { name: 'Spring Boot', level: 75 },
     ],
   },
   {
@@ -61,70 +61,64 @@ export const skills = [
 
 export const experience = [
     {
-        role: 'Senior Software Engineer',
-        company: 'Innovatech Solutions',
-        period: '2020 - Present',
-        description: 'Led the development of a scalable microservices architecture for a new fintech platform. Mentored junior developers and improved code quality through CI/CD pipelines and automated testing.',
-    },
-    {
         role: 'Software Engineer',
-        company: 'Data Dynamics Corp.',
-        period: '2018 - 2020',
-        description: 'Developed and maintained data-intensive applications using React and Python. Contributed to a 20% improvement in application performance by optimizing database queries and frontend rendering.',
+        company: 'Google',
+        period: '2021 - Present',
+        description: 'Developed and maintained key features for a large-scale enterprise application, improving performance and user engagement. Collaborated in an Agile environment to deliver high-quality code.',
     },
     {
-        role: 'Junior Web Developer',
-        company: 'Creative Web Agency',
-        period: '2016 - 2018',
-        description: 'Built responsive websites for various clients using HTML, CSS, and JavaScript. Collaborated with designers to translate mockups into functional and visually appealing web pages.',
+        role: 'Software Engineer Intern',
+        company: 'SAP',
+        period: '2020 - 2021',
+        description: 'Worked on the design and development of a new module for an existing HR management solution. Gained experience in full-stack development and enterprise software architecture.',
     },
 ];
 
 export const portfolioProjects = [
     {
-        name: 'E-commerce Platform',
+        name: 'Portfolio Website',
         image: 'https://placehold.co/600x400.png',
-        hint: 'online store',
-        githubUrl: 'https://github.com',
+        hint: 'personal website',
+        githubUrl: 'https://github.com/jerinsamj/jerinsamj.github.io',
+        liveUrl: 'https://jerinsamj.github.io/Resume/',
+    },
+    {
+        name: 'Automated Timetable Generator',
+        image: 'https://placehold.co/600x400.png',
+        hint: 'schedule planner',
+        githubUrl: 'https://github.com/jerinsamj/automated-timetable-generator',
         liveUrl: '#',
     },
     {
-        name: 'Project Management Tool',
+        name: 'Stock Price Prediction',
         image: 'https://placehold.co/600x400.png',
-        hint: 'team collaboration',
-        githubUrl: 'https://github.com',
+        hint: 'finance forecast',
+        githubUrl: 'https://github.com/jerinsamj/Stock-Price-Prediction',
         liveUrl: '#',
     },
     {
-        name: 'Personal Blog Engine',
+        name: 'Water Potability Prediction',
         image: 'https://placehold.co/600x400.png',
-        hint: 'writer journal',
-        githubUrl: 'https://github.com',
-        liveUrl: '#',
-    },
-    {
-        name: 'Data Visualization Dashboard',
-        image: 'https://placehold.co/600x400.png',
-        hint: 'analytics charts',
-        githubUrl: 'https://github.com',
+        hint: 'water quality',
+        githubUrl: 'https://github.com/jerinsamj/Water-Potability-Prediction',
         liveUrl: '#',
     },
 ];
 
 export const testimonials = [
     {
-        quote: "Jerin is an exceptional engineer who brings not only technical expertise but also a creative and collaborative spirit to the team. His work has been pivotal to our success.",
-        author: 'Jane Doe',
-        title: 'Project Manager, Innovatech',
+        quote: "Jerin is a very dedicated and hard-working person. He is a great team player and always willing to help others. I wish him all the best for his future endeavors.",
+        author: 'Aysha S',
+        title: 'Project Collaborator',
         avatar: 'https://placehold.co/100x100.png',
         hint: 'woman portrait',
     },
     {
-        quote: "Working with Jerin was a pleasure. He is a detail-oriented developer who consistently delivers high-quality, clean, and maintainable code. Highly recommended.",
-        author: 'John Smith',
-        title: 'Lead Designer, Data Dynamics',
+        quote: "Jerin is a person who is ready to take up any challenge. He is a great learner and has a great potential to grow. I wish him all the best for his future.",
+        author: 'Aleena T',
+        title: 'Project Collaborator',
         avatar: 'https://placehold.co/100x100.png',
-        hint: 'man smiling',
+        hint: 'professional woman',
     },
     {
         quote: "His ability to tackle complex problems with elegant solutions is impressive. Jerin is a valuable asset to any engineering team.",

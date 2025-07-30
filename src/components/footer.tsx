@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="w-full bg-background py-6">
       <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Jerin Sam. All rights reserved.
+          &copy; {new Date().getFullYear()} Jerin Sam J. All rights reserved.
         </p>
         <div className="flex items-center gap-4">
           {socialLinks.map((link) => (

@@ -26,7 +26,7 @@ export default function Header() {
     >
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="font-headline text-2xl font-bold">
-          Jerin Sam
+          Jerin Sam J
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
@@ -60,7 +60,7 @@ export default function Header() {
               <div className="grid gap-4 p-4">
                 <div className="flex items-center justify-between">
                     <Link href="/" className="font-headline text-2xl font-bold">
-                        Jerin Sam
+                        Jerin Sam J
                     </Link>
                 </div>
                 <nav className="grid gap-2">
