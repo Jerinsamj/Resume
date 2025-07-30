@@ -71,6 +71,18 @@ export const experience = [
         period: '05/2023 - 10/2023',
         description: 'Developed and automated internal systems using Microsoft Power Platform, Power Automate, SharePoint, Power BI, and Planner. Built a custom ticketing system for streamlined service request management with real-time notifications and automated workflows. Created a responsive internal app enabling secure, cross-platform data uploads and automated task assignments via Planner and Outlook.',
     },
+    {
+        role: 'Assistant Manager',
+        company: 'Econo (Part-time 20hrs/week)',
+        period: '01/2019 - 05/2019',
+        description: 'Supervised day-to-day operations to meet performance, quality and service expectations. Monitored cash intake and deposit records, increasing accuracy, and reducing discrepancies. Opened and closed location and monitored shift changes to uphold successful operations strategies and maximize business success.',
+    },
+    {
+        role: 'Information System Administrator/Manager',
+        company: 'CyberTech (Full-time)',
+        period: '04/2014 - 12/2017',
+        description: 'Worked with programming languages and Microsoft applications such as SharePoint, Power Platform, Power BI, and Power Automate for data visualization and workflow automation. Administered and managed Azure Cloud services, including Entra ID, governance, virtual machines, network zoning, and resource provisioning to support secure and scalable infrastructure. Diagnosed and resolved hardware, software, network, and server issues across hybrid environments.',
+    },
 ];
 
 export const education = [
