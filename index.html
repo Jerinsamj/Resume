@@ -73,8 +73,10 @@
         }
     </style>
     <script>
-        // Redirect after page loads (backup to meta refresh)
-        window.location.href = 'https://resume-amber-eta-63.vercel.app';
+        // Smart redirect that preserves the path (e.g., /ai route)
+        const currentPath = window.location.pathname.replace('/Resume', '');
+        const targetUrl = 'https://resume-amber-eta-63.vercel.app' + currentPath;
+        window.location.href = targetUrl;
     </script>
 </head>
 <body>
